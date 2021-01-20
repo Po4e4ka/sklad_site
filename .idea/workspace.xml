@@ -1,18 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5db70ccd-a737-4da1-ac0c-982fdc6aa036" name="Default Changelist" comment="" />
+    <list default="true" id="5db70ccd-a737-4da1-ac0c-982fdc6aa036" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Positions/templates/Positions/pos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Positions/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Positions/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Positions/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Positions/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="mikhaylov" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1myDKMjAW95xWftjTNoJy5zlSCS" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
@@ -35,12 +57,40 @@
       <option name="presentableId" value="Default" />
       <updated>1610456871194</updated>
     </task>
+    <task id="LOCAL-00001" summary="init commit">
+      <created>1611085151401</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1611085151401</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="init commit" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="587" y="97" key="CommitChangelistDialog2" timestamp="1611085150829">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="587" y="97" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1611085150829" />
+    <state x="838" y="418" key="Github.ShareDialog" timestamp="1611085118433">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="838" y="418" key="Github.ShareDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1611085118433" />
+    <state x="801" y="224" key="Github.UntrackedFilesDialog" timestamp="1611085125732">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="801" y="224" key="Github.UntrackedFilesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1611085125732" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1611085048496">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1611085048496" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1611085276556">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1611085276556" />
   </component>
 </project>
