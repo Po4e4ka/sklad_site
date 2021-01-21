@@ -1,6 +1,5 @@
-from attr.filters import exclude
 from django import forms
-from .models import Groups, Xyz, Positions, Levels, Persons, Change_types, Objects, Сhange_qality
+from .models import Groups, Xyz, Positions, Levels, Persons, Change_types, Objects, Change_qantity
 
 
 class GroupsModelForm(forms.ModelForm):
@@ -38,7 +37,7 @@ class ObjectsModelForm(forms.ModelForm):
         model = Objects
         exclude=["id"]
 
-class Сhange_qalityModelForm(forms.ModelForm):
+class Change_qantityModelForm(forms.ModelForm):
     class Meta:
-        model = Сhange_qality
+        model = Change_qantity
         exclude=["id"]
