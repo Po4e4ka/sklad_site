@@ -2,8 +2,9 @@ from django.forms import model_to_dict
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
+from .models import Groups, Xyz, Positions, Levels, Persons, Change_types, Objects, Сhange_qality
+from .forms import GroupsModelForm, XyzModelForm, PositionsModelForm, LevelsModelForm, PersonsModelForm, Change_typesModelForm, ObjectsModelForm, Сhange_qalityModelForm
 
-from .models import Positions, Persons
 
 
 def index(request):
