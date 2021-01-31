@@ -1,12 +1,13 @@
-from .models import Positions
+
 from django.http import HttpResponse
 
+from Positions.models import Positions
 
 data_test = dict(id=1, code=123456789, name="test", groups_id=1, quantity=10.0, ediz="kg", photo1=None,
                  photo2=None, mol="Ivanov", xyz_id=1)
 
 
-def vvod_info_pos(data: dict):
+def vvod_info_pos(data=data_test):
     if type(data) != dict:
         return HttpResponse("Bad Request: wrong type of data")
 
@@ -34,3 +35,5 @@ def vvod_info_pos(data: dict):
     else:
         return HttpResponse("Bad Request: positions.id is already in base")
 
+def test_vvod():
+    return HttpResponse("lol_test")
