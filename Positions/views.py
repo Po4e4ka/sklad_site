@@ -10,3 +10,10 @@ def index(request):
     positions = Positions._meta.get_fields()
     print(positions)
     return HttpResponse(f'{positions}')
+
+class NewView(View):
+    def get(self, request):
+        return render(request, 'Positions/new_position.html')
+
+    def post(self, request):
+        pass
