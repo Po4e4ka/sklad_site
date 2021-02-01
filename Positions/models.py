@@ -26,13 +26,13 @@ class Persons (models.Model):
 
 class Positions (models.Model):
     id = models.AutoField(primary_key=True) # ИД комлектующего
-    code = models.PositiveBigIntegerField() # Штрихкод
-    name = models.TextField() # Наименование
+    code = models.PositiveBigIntegerField(null=True) # Штрихкод
+    name = models.TextField(null=True) # Наименование
     groups_id = models.ForeignKey(Groups, on_delete=models.SET_NULL, null=True) # Номенклатурная группа
-    quantity = models.FloatField() # Количество
-    ediz = models.TextField() # Единица измерения
-    photo1 = models.ImageField() # Фото 1
-    photo2 = models.ImageField() # Фото 2 (в упаковке)
+    quantity = models.FloatField(null=True) # Количество
+    ediz = models.TextField(null=True) # Единица измерения
+    photo1 = models.ImageField(null=True) # Фото 1
+    photo2 = models.ImageField(null=True) # Фото 2 (в упаковке)
     mol = models.ForeignKey(Persons, on_delete=models.SET_NULL, null=True) # Материально-ответственное лицо
     xyz_id = models.ForeignKey(Xyz, on_delete=models.SET_NULL, null=True) # Местонахождение
 
@@ -40,7 +40,7 @@ class Positions (models.Model):
 class Change_types(models.Model):
     id = models.AutoField(primary_key=True)  # ИД типа операции
     name = models.TextField()  # Тип атомарной операции с комлпектующим
-    znak = models.BooleanField() # характеритика операции: True - увеличение, False - уменьшение количества
+    znak = models.BooleanField() # Характеритика операции: True - увеличение, False - уменьшение количества
 
 
 class Objects (models.Model):
