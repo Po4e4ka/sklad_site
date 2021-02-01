@@ -14,19 +14,6 @@ class Xyz (models.Model):
     z = models.IntegerField()  # Координаты уровня высоты
 
 
-class Positions (models.Model):
-    id = models.AutoField(primary_key=True) # ИД комлектующего
-    code = models.PositiveBigIntegerField() # Штрихкод
-    name = models.TextField() # Наименование
-    groups_id = models.ForeignKey(Groups, on_delete=models.SET_NULL, null=True) # Номенклатурная группа
-    quantity = models.FloatField() # Количество
-    ediz = models.TextField() # Единица измерения
-    photo1 = models.ImageField() # Фото 1
-    photo2 = models.ImageField() # Фото 2 (в упаковке)
-    mol = models.TextField() # Материально-ответственное лицо
-    xyz_id = models.ForeignKey(Xyz, on_delete=models.SET_NULL, null=True) # Местонахождение
-
-
 class Levels(models.Model):
     id = models.AutoField(primary_key=True)  # ИД уровня доступа
     name = models.TextField()  # Описание уровня доступа
@@ -36,6 +23,18 @@ class Persons (models.Model):
     id = models.AutoField(primary_key=True)  # ИД авторизованного пользователя
     name = models.TextField() # Фамилия И.О.
     level_id = models.ForeignKey(Levels,on_delete=models.SET_NULL, null=True) # Уровень доступа
+
+class Positions (models.Model):
+    id = models.AutoField(primary_key=True) # ИД комлектующего
+    code = models.PositiveBigIntegerField() # Штрихкод
+    name = models.TextField() # Наименование
+    groups_id = models.ForeignKey(Groups, on_delete=models.SET_NULL, null=True) # Номенклатурная группа
+    quantity = models.FloatField() # Количество
+    ediz = models.TextField() # Единица измерения
+    photo1 = models.ImageField() # Фото 1
+    photo2 = models.ImageField() # Фото 2 (в упаковке)
+    mol = models.ForeignKey(Persons, on_delete=models.SET_NULL, null=True) # Материально-ответственное лицо
+    xyz_id = models.ForeignKey(Xyz, on_delete=models.SET_NULL, null=True) # Местонахождение
 
 
 class Change_types(models.Model):

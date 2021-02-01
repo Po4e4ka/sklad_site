@@ -11,11 +11,11 @@ import sqlite3
 
 
 def index(request):
-    # positions = Positions._meta.get_fields() # Получение колонок
-    # print(positions)
-    return test_vvod() # Это просто проверка, что такой вызов работает из твоего файла
-    # return vvod_info_pos() # Здесь идет вызов твоей функции
-    # # return HttpResponse(f'{positions}')
+# positions = Positions._meta.get_fields() # Получение колонок
+# print(positions)
+#    return test_vvod() # Это просто проверка, что такой вызов работает из твоего файла
+    return vvod_info_pos() # Здесь идет вызов твоей функции
+# # return HttpResponse(f'{positions}')
 
 
 
