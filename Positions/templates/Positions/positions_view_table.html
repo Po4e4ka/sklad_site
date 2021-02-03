@@ -22,10 +22,11 @@
 <!--===============================================================================================-->
 </head>
 <body>
-	
 	<div class="limiter">
 		<div class="container-table100">
 			<div class="wrap-table100">
+
+            <h1 align="center">Таблита наименований</h1>
 				<div class="table100">
 					<table>
 						<thead>
@@ -39,10 +40,10 @@
 							</tr>
 						</thead>
 						<tbody>
-                        {% for pos in positions %}
+                        {% for pos in positions|dictsort:sort %}
 								<tr>
 									<td class="column1">{{ pos.id}}</td>
-									<td class="column2">{{ pos.code }}</td>
+									<td class="column2">{{ pos.code|stringformat:"06d" }}</td>
 									<td class="column3">{{ pos.name }}</td>
 									<td class="column4">{{ pos.quantity }}</td>
 									<td class="column5">{{ pos.ediz }}</td>

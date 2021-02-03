@@ -38,6 +38,7 @@ class PositionLisView(View):
     def get(self, request):
         positions = Positions.objects.all()
         positions = [model_to_dict(pos) for pos in positions]
-        return render(request, "Positions/positions_view_table.html", context={"positions":positions})
+        return render(request, "Positions/positions_view_table.html", context={"positions":positions,
+                                                                               "sort":'id'})
     def post(self, request):
         pass
