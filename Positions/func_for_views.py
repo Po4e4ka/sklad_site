@@ -1,4 +1,4 @@
-from django.db.models import Max, Avg
+# from django.db.models import Max, Avg
 from django.http import HttpResponse
 from Positions.models import Positions
 import pandas as pd
@@ -21,21 +21,30 @@ def vvod_info_pos(data: dict):
     print(data)
     if type(data) != dict:
         return HttpResponse("Bad Request: wrong type of data")
-    # if 'id' in data:
-    #     if Positions.objects.filter(id=data['id']).count() > 0:
-    #         return HttpResponse("Bad Request: positions.id is already in base")
-    # else:
-    #     print()
-    #     data['id'] = Positions.objects.all().aggregate(Max('id'))
-    #     print(data)
-    #     return HttpResponse("OK")
-    try:
-        position = Positions(**data)
+    if 'name' in data:
+        if Positions.objects.filter(name=data['name']).count() > 0:
+            return HttpResponse("Bad Request: positions.id is already in base")
+            """
+            подумать насчет действий, если необходимо внести свежие данные о наличии при загрузке 
+            из внешних источников, а позиция уже есть в БД:
+            1. Обновляем данные или оставляем старые
+            2. Куда записывается информация:
+             - о конфликте (в том числе по каким графам есть отклонения);
+             - об удаляемых данных;
+             - предлагается ли ручная корректировка
+            """
+    else:
+        try:
+            position = Positions(**data)
+            position.save()
+        except:
+            return -1
 
-        position.save()
-    except:
-        return -1
-    # return HttpResponse(f"Позиция введена: {position.id}, {position.name}")
+#     data['id'] = Positions.objects.all().aggregate(Max('id'))
+#     print(data)
+#     return HttpResponse("OK")
+
+# return HttpResponse(f"Позиция введена: {position.id}, {position.name}")
 
 
 
