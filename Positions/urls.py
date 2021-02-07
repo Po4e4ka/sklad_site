@@ -19,5 +19,6 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name="index"),
+#    path('index/', views.index_group, name="index_group"),
     # path('pos/', views.PosView, name="position"),
 ]
