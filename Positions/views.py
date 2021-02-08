@@ -4,8 +4,9 @@ from django.views import View
 
 # from .func_for_views import vvod_info_pos
 from .func_for_views import excel_to_dict, vvod_info_pos, vvod_info_group, nomenklatura_test, \
-    xyz_test, vvod_info_xyz, obj_test, vvod_info_obj,\
-    level_test, vvod_info_level, vvod_info_person, person_test
+    xyz_test, vvod_info_xyz, obj_test, vvod_info_obj, \
+    level_test, vvod_info_level, vvod_info_person, person_test, \
+    change_test, vvod_info_ch_type
 
 from .models import Positions, Groups
 import sqlite3
@@ -25,6 +26,8 @@ def index(request):
         vvod_info_person(i)
     for i in obj_test:
         vvod_info_obj(i)
+    for i in change_test:
+        vvod_info_ch_type(i)
     return HttpResponse('OK')
 
 

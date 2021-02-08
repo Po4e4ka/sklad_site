@@ -1,6 +1,6 @@
 # from django.db.models import Max, Avg
 from django.http import HttpResponse
-from .models import Positions, Groups, Xyz, Levels, Persons, Objects
+from .models import Positions, Groups, Xyz, Levels, Persons, Objects, Change_types
 import pandas as pd
 
 
@@ -147,3 +147,27 @@ def vvod_info_obj(data: dict):
                 return -1
     else:
         return HttpResponse("Bad Request: objects.name is not defined")
+
+change_test = [
+             {"id": 1, "name": "prihod", "znak": True},
+             {"id": 2, "name": "rashod", "znak": False},
+             {"id": 3, "name": "izlishki", "znak": True},
+             {"id": 4, "name": "nedostacha", "znak": False},
+            ]
+
+def vvod_info_ch_type(data: dict):
+    """закрытый перечень операций, права изменения только у админа"""
+    data_test(data)
+    if "id" in data:
+        if Change_types.objects.filter(name=data["id"]).count() > 0:
+            print(f"Есть в базе {data['id']}")
+            return HttpResponse("Bad Request: change_types.id is already in base")
+        else:
+            try:
+                ch_type = Change_types(**data)
+                ch_type.save()
+                print(f"Сохранено в базе: {ch_type.id}, {ch_type.name}")
+            except:
+                return -1
+    else:
+        return HttpResponse("Bad Request: change_types.id is not defined")
