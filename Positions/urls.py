@@ -21,5 +21,6 @@ urlpatterns = [
 #    path('index/', views.index_group, name="index_group"),
     # path('pos/', views.PosView, name="position"),
     path('new/', views.NewView.as_view(), name="new"),
-    path("list/", views.PositionLisView.as_view(), name="list")
+    path("list/", views.PositionLisView.as_view(), name="list"),
+    path("omagad/", views.bd_func_vvod_start)
 ]

@@ -4,7 +4,7 @@ from .models import Positions, Groups, Xyz, Levels, Persons, Objects
 import pandas as pd
 
 
-def excel_to_dict(file="Positions/Копия 1.xls"):
+def excel_to_dict(file="for_test/Копия 1.xls"):
     # Load spreadsheet
     xl = pd.ExcelFile(file)
     # Load a sheet into a DataFrame by name: df1
