@@ -20,4 +20,6 @@ from . import views
 urlpatterns = [
     path('', views.index, name="index"),
     # path('pos/', views.PosView, name="position"),
+    path('new/', views.NewView.as_view(), name="new"),
+    path("list/", views.PositionLisView.as_view(), name="list")
 ]
