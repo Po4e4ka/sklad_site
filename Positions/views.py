@@ -9,8 +9,7 @@ from .models import Positions
 def index(request):
     positions = Positions._meta.get_fields()
     print(positions)
-    return HttpResponse(f'{positions}')
-
+    return render(request, "Positions/position_view.html")
 class NewView(View):
     def get(self, request):
         return render(request, 'Positions/new_position.html')
