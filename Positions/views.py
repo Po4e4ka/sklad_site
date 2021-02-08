@@ -2,7 +2,7 @@ from django.forms import model_to_dict
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
-from .models import Positions
+from .models import Positions, Persons
 
 from .func_for_views import excel_to_dict, vvod_info_pos, vvod_info_group, nomenklatura_test, \
     xyz_test, vvod_info_xyz, obj_test, vvod_info_obj,\
@@ -19,7 +19,8 @@ def index(request):
 
 class NewView(View):
     def get(self, request):
-        return render(request, 'Positions/new_position.html')
+        persons = Persons.objects.filter(level_id="3")
+        return render(request, 'Positions/new_position.html', context={"persons": persons})
 
     def post(self, request):
         # реобразование в словарь всех данных из пост
@@ -41,9 +42,10 @@ class NewView(View):
         return HttpResponse(html)
 
 class PositionLisView(View):
-    def get(self, request):
-        positions = Positions.objects.all()
-        return render(request, "Positions/positions_view_table.html", context={"positions":positions, "sort":'id'})
+    def get(self, request, sort='quantity'):
+        print(request,sort)
+        positions = Positions.objects.order_by(sort, "id")
+        return render(request, "Positions/positions_view_table.html", context={"positions":positions})
     def post(self, request):
         pass
 

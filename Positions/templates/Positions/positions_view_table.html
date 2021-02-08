@@ -31,6 +31,7 @@
 					<table>
 						<thead>
 							<tr class="table100-head">
+{#                                TODO Найти способ изменять тип сортировки#}
 								<th class="column1">ID</th>
 								<th class="column2">Штрихкод</th>
 								<th class="column3">Наименование</th>
@@ -40,7 +41,7 @@
 							</tr>
 						</thead>
 						<tbody>
-                        {% for pos in positions|dictsort:sort %}
+                        {% for pos in positions%}
 								<tr>
 									<td class="column1">{{ pos.id}}</td>
 									<td class="column2">{{ pos.code|stringformat:"06d" }}</td>

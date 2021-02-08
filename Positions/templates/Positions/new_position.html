@@ -39,16 +39,17 @@
                     </p>
                     <p class='field'>
                         <label for='quantity'>Количество</label>
-                        <input type='curz' id='quantity' name='quantity' title='quantity'/>
+                        <input type='curz-1' id='quantity' name='quantity' title='quantity'/>
+                        <input type='curz-2' id='ediz' name='ediz' title='ediz' placeholder="шт"/>
                         <span id='valida' class='i i-close'></span>
                     </p>
                     <p class="field">
                         <label for='mol'>Ответственный</label>
                         <select id='mol' name='mol'>
                             <option value="" hidden>Выберите ответственного</option>
-                            <option value="1">Мурзина Арина</option>
-                            <option value="2">Бороздин Сергей</option>
-                            <option value="3">Иванов Дмитрий</option>
+                            {% for person in persons %}
+                                <option value="{{  person.id }}">{{  person.name }}</option>
+                            {% endfor %}
                         </select>
                         <span id='valida' class='i i-close'></span>
                     </p>
