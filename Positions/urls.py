@@ -16,9 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
-
 urlpatterns = [
     path('', views.index, name="index"),
+#    path('index/', views.index_group, name="index_group"),
     # path('pos/', views.PosView, name="position"),
     path('new/', views.NewView.as_view(), name="new"),
     path("list/", views.PositionLisView.as_view(), name="list")
