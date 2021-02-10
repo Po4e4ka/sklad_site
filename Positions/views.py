@@ -15,9 +15,8 @@ def index(request):
     print(positions)
     return HttpResponse(f'{positions}')
 
-
-
 class NewView(View):
+    """Вид и пост странички новой позиции"""
     def get(self, request):
         persons = Persons.objects.filter(level_id="3")
         return render(request, 'Positions/new_position.html', context={"persons": persons})
@@ -42,16 +41,16 @@ class NewView(View):
         return HttpResponse(html)
 
 class PositionLisView(View):
-    def get(self, request, sort='quantity'):
+    """Вид и пост списка всех позиций"""
+    def get(self, request, sort='id'):
         print(request,sort)
         positions = Positions.objects.order_by(sort, "id")
         return render(request, "Positions/positions_view_table.html", context={"positions":positions})
     def post(self, request):
         pass
 
-
-
 def bd_func_vvod_start(request):
+    """Функция заноса тестовых значений из таблицы"""
     for i in excel_to_dict():
         vvod_info_pos(i)
     for i in nomenklatura_test:
@@ -65,3 +64,10 @@ def bd_func_vvod_start(request):
     for i in obj_test:
         vvod_info_obj(i)
     return HttpResponse('OK')
+
+class PositionView(View):
+    def get(self, request, pos_id):
+        pos = Positions.objects.get(pk=pos_id)
+        return render(request, "Positions/position_view.html", context={"position":pos})
+    def post(self, request):
+        pass
