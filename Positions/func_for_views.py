@@ -1,8 +1,9 @@
 # from django.db.models import Max, Avg
 from django.http import HttpResponse
-from .models import Positions, Groups, Xyz, Levels, Persons, Objects, Change_types
+from .models import Positions, Groups, Xyz, Levels, Persons, Objects, \
+    Change_types, Change_qantity
 import pandas as pd
-
+import datetime
 
 def excel_to_dict(file="Positions/Копия 1.xls"):
     # Load spreadsheet
@@ -158,10 +159,10 @@ change_test = [
 def vvod_info_ch_type(data: dict):
     """закрытый перечень операций, права изменения только у админа"""
     data_test(data)
-    if "id" in data:
-        if Change_types.objects.filter(name=data["id"]).count() > 0:
-            print(f"Есть в базе {data['id']}")
-            return HttpResponse("Bad Request: change_types.id is already in base")
+    if "name" in data:
+        if Change_types.objects.filter(name=data["name"]).count() > 0:
+            print(f"Есть в базе {data['name']}")
+            return HttpResponse("Bad Request: change_types.name is already in base")
         else:
             try:
                 ch_type = Change_types(**data)
@@ -170,4 +171,25 @@ def vvod_info_ch_type(data: dict):
             except:
                 return -1
     else:
-        return HttpResponse("Bad Request: change_types.id is not defined")
+        return HttpResponse("Bad Request: change_types.name is not defined")
+
+
+qant_test = {"position_id": 1, "quantity": 50.0, "change_type_id" : 1}
+
+def vvod_info_ch_qant(data: dict):
+    data_test(data)
+    if "position_id" in data:
+        if Positions.objects.filter(id=data["position_id"]).count() > 0:
+            try:
+                ch_qant = Change_qantity(**data)
+                ch_qant.time_oper = datetime.datetime
+                print(ch_qant)
+                ch_qant.save()
+                print(f"Сохранено в базе: {ch_qant.id}, {ch_qant.id.name}, {ch_qant.id.quantity}, {ch_qant.id.quantity}")
+            except:
+                return -1
+        else:
+            print("Позиция не найдена", data["position_id"])
+    else:
+         print(f"Не определен ID изменяемой позиции {data['name']}")
+         return HttpResponse("Bad Request: positions.id is absent")
