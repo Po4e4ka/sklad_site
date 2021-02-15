@@ -33,6 +33,7 @@ def change_info_ch_type(data: dict = change_test_new):
         ch_type = Change_types(**data)
         ch_type.save()
         print(f"Сохранено в базе: {ch_type.id}, {ch_type.name}, {ch_type.znak}")
+        vvod_info_ch_qant(data, type=11)
     else:
         print(f"Id {data['name']} не найден")
         return HttpResponse("Bad Request: ch_type.id is absent")

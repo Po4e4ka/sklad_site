@@ -28,7 +28,7 @@ def data_test(data):
 def vvod_info_pos(data: dict):
     data_test(data)
     if "name" in data:
-        if Positions.objects.filter(name=data["name"]).count() > 0:
+        if Positions.objects.filter(name=data["name"]).exists():
             print(f"Есть в базе {data['name']}")
             return HttpResponse("Bad Request: positions.name is already in base")
         else:
@@ -52,7 +52,7 @@ nomenklatura_test = [{"id": 1, "name": "материалы"},
 def vvod_info_group(data: dict):
     data_test(data)
     if "name" in data:
-        if Groups.objects.filter(name=data["name"]).count() > 0:
+        if Groups.objects.filter(name=data["name"]).exists():
             print(f"Есть в базе {data['name']}")
             return HttpResponse("Bad Request: group.name is already in base")
         else:
@@ -60,16 +60,16 @@ def vvod_info_group(data: dict):
                 group = Groups(**data)
                 group.save()
                 print(f"Сохранено в базе: {group.id}, {group.name}")
-                vvod_info_ch_qant(data, type=5)
+                vvod_info_ch_qant(data, type=6)
             except:
                 return -1
     else:
         return HttpResponse("Bad Request: group.name is absent")
 
 
-xyz_test = [{"id": 1, "X": "a", "y": 1, "z": 1},
-            {"id": 2, "X": "a", "y": 2, "z": 1},
-            {"id": 3, "X": "a", "y": 3, "z": 1}]
+xyz_test = [{"X": "a", "y": 1, "z": 1},
+            {"X": "a", "y": 2, "z": 1},
+            {"X": "a", "y": 3}]
 
 
 def vvod_info_xyz(data: dict):
@@ -80,29 +80,33 @@ def vvod_info_xyz(data: dict):
         return HttpResponse("Bad Request: xyz.X and xyz.y is not defined")
     else:
         try:
-            xyz = Xyz(**data)
-            xyz.save()
-            print(f"Сохранено в базе: {xyz.id}, {xyz.X}, {xyz.z}")
-            vvod_info_ch_qant(data, type=5)
+            if "z" not in data and Xyz.objects.filter(X=data["X"], y=data["y"]).exists():
+                print(f"Есть в базе {data['X']}, {data['y']}")
+                return HttpResponse("Bad Request: Xyz.name is already in base")
+            elif "z" in data and Xyz.objects.filter(X=data["X"], y=data["y"], z=data["z"]).exists():
+                print(f"Есть в базе {data['X']}, {data['y']}, {data['z']}")
+                return HttpResponse("Bad Request: Xyz.name is already in base")
+            else:
+                xyz = Xyz(**data)
+                xyz.save()
+                print(f"Сохранено в базе: {xyz.id}, {xyz.X}, {xyz.y}, {xyz.z}")
+                vvod_info_ch_qant(data, type=7)
         except:
             return -1
-        else:
-            return HttpResponse("Bad Request: group.id is not defined")
 
 
-level_test = [{"id": 1, "name": "top"},
-              {"id": 2, "name": "buh"},
-              {"id": 3, "name": "sklad"},
-              {"id": 4, "name": "another"},
-              {"id": 5, "name": "admin"}
-              ]
+level_test = [{"name": "top"},
+              {"name": "buh"},
+              {"name": "sklad"},
+              {"name": "another"},
+              {"name": "admin"}]
 
 
 def vvod_info_level(data: dict):
     data_test(data)
     """доделать другую проверку - добавлять уровни только админу"""
     if "name" in data:
-        if Levels.objects.filter(name=data["name"]).count() > 0:
+        if Levels.objects.filter(name=data["name"]).exists():
             print(f"Есть в базе {data['name']}")
             return HttpResponse("Bad Request: levels.name is already in base")
         else:
@@ -110,48 +114,46 @@ def vvod_info_level(data: dict):
                 level = Levels(**data)
                 level.save()
                 print(f"Сохранено в базе: {level.id}, {level.name}")
-                vvod_info_ch_qant(data, type=5)
-            except:
-                return -1
+                vvod_info_ch_qant(data, type=8)
+            except Exception as e:
+                print(e)
     else:
         return HttpResponse("Bad Request: level.name is not defined")
 
 
-person_test = [{"id": 1, "name": "Иванов Иван"},
-               {"id": 2, "name": "Петров Петр"},
-               {"id": 3, "name": "Сидоров Сидор"},
-               {"id": 4, "name": "Инкогнито"}]
+person_test = [{"name": "Иванов Иван"},
+               {"name": "Петров Петр"},
+               {"name": "Сидоров Сидор"},
+               {"name": "Михайлов Алексей"}]
 
 
 def vvod_info_person(data: dict):
     data_test(data)
     if "name" in data:
-        if Persons.objects.filter(name=data["name"]).count() > 0:
-            print(f"Есть в базе {data['name']}")
+        if Persons.objects.filter(name=data["name"]).exists():
+            print("Есть в базе", data["name"])
             return HttpResponse("Bad Request: persons.name is already in base")
         else:
             try:
                 person = Persons(**data)
                 person.save()
                 print(f"Сохранено в базе: {person.id}, {person.name}")
-                vvod_info_ch_qant(data, type=5)
-            except:
-                return -1
+                vvod_info_ch_qant(data, type=9)
+            except Exception as e:
+                print(e)
     else:
         return HttpResponse("Bad Request: person.name is absent")
 
 
-obj_test = [
-    {"id": 1, "name": "object1"},
-    {"id": 2, "name": "object2"},
-    {"id": 3, "name": "object3"},
-]
+obj_test = [{"name": "object1"},
+    {"name": "object2"},
+    {"name": "object0"}]
 
 
 def vvod_info_obj(data: dict):
     data_test(data)
     if "name" in data:
-        if Objects.objects.filter(name=data["name"]).count() > 0:
+        if Objects.objects.filter(name=data["name"]).exists():
             print(f"Есть в базе {data['name']}")
             return HttpResponse("Bad Request: objects.name is already in base")
         else:
@@ -159,26 +161,24 @@ def vvod_info_obj(data: dict):
                 obj = Objects(**data)
                 obj.save()
                 print(f"Сохранено в базе: {obj.id}, {obj.name}")
-                vvod_info_ch_qant(data, type=5)
-            except:
-                return -1
+                vvod_info_ch_qant(data, type=10)
+            except Exception as e:
+                print(e)
     else:
         return HttpResponse("Bad Request: objects.name is not defined")
 
 
-change_test = [
-    {"id": 1, "name": "prihod", "znak": False},
-    {"id": 2, "name": "rashod", "znak": True},
-    {"id": 3, "name": "izlishki", "znak": False},
-    {"id": 4, "name": "nedostacha", "znak": True},
-]
+change_test = [{"name": "prihod", "znak": False},
+    {"name": "rashod", "znak": True},
+    {"name": "izlishki", "znak": False},
+    {"name": "nedostacha", "znak": True}]
 
 
 def vvod_info_ch_type(data: dict):
     """закрытый перечень операций, права изменения только у админа"""
     data_test(data)
     if "name" in data:
-        if Change_types.objects.filter(name=data["name"]).count() > 0:
+        if Change_types.objects.filter(name=data["name"]).exists():
             print(f"Есть в базе {data['name']}")
             return HttpResponse("Bad Request: change_types.name is already in base")
         else:
@@ -186,32 +186,30 @@ def vvod_info_ch_type(data: dict):
                 ch_type = Change_types(**data)
                 ch_type.save()
                 print(f"Сохранено в базе: {ch_type.id}, {ch_type.name}")
-                vvod_info_ch_qant(data, type=5)
-            except:
-                return -1
+                vvod_info_ch_qant(data, type=11)
+            except Exception as e:
+                print(e)
     else:
         return HttpResponse("Bad Request: change_types.name is not defined")
 
 
-qant_test = {"position_id": Positions.objects.filter(id=3).get().id, "quantity": 300.0}
-type_test = 4
+qant_test = {"position_id": Positions.objects.filter(id=1).get().id, "quantity": 100.0}
+type_test = 2
 
 
 def vvod_info_ch_qant(data: dict = qant_test, type=type_test):
     data_test(data)
     # print(data)
+    ch_qant = Change_qantity()
+    ch_qant.time_oper = datetime.today()
     if type < 5:
-        if Positions.objects.filter(id=data["position_id"]).count() < 1:
+        if not Positions.objects.filter(id=data["position_id"]).exists():
             print("Позиция не найдена", data["position_id"])
             return HttpResponse("Bad Request: Positions.id is not defined")
-        ch_qant = Change_qantity()
-        ch_qant.time_oper = datetime.now()
+
         ch_qant.change_type_id = Change_types.objects.filter(id=type).get()
         ch_qant.position_id = Positions.objects.filter(id=data["position_id"]).get()
         ch_qant.quantity = data["quantity"]
-
-        print(model_to_dict(ch_qant))
-        ch_qant.save()
 
         pos = Positions.objects.filter(id=data["position_id"]).get()
         # print(Change_types.objects.filter(id=type).get().znak)
@@ -222,7 +220,6 @@ def vvod_info_ch_qant(data: dict = qant_test, type=type_test):
 
     else:
         print("записана операция с нулевым изменением количества")
-        # ch_qant = Change_qantity(**data)
-        # ch_qant.time_oper = datetime.now()
-        # ch_qant.save()
-        # print(model_to_dict(ch_qant))
+        ch_qant.change_type_id = Change_types.objects.filter(id=5).get()
+    ch_qant.save()
+    print(model_to_dict(ch_qant))
