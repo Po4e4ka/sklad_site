@@ -18,21 +18,21 @@ def index(request):
 # positions = Positions._meta.get_fields()
 #     for i in excel_to_dict():
 #          vvod_info_pos(i)
-#     for i in nomenklatura_test:
-#         vvod_info_group(i)
-#     for i in xyz_test:
-#         vvod_info_xyz(i)
-#     for i in level_test:
-#         vvod_info_level(i)
-#     for i in person_test:
-#         vvod_info_person(i)
+    for i in nomenklatura_test:
+        vvod_info_group(i)
+    for i in xyz_test:
+        vvod_info_xyz(i)
+    for i in level_test:
+        vvod_info_level(i)
+    for i in person_test:
+        vvod_info_person(i)
     for i in obj_test:
         vvod_info_obj(i)
 #     for i in change_test_new:
 #         change_info_ch_type(i)
-#  #    for i in change_test:
- #        vvod_info_ch_type(i)
- #    vvod_info_ch_qant()
+    for i in change_test:
+        vvod_info_ch_type(i)
+    vvod_info_ch_qant()
 
     return HttpResponse('OK')
 
