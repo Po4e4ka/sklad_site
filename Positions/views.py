@@ -11,9 +11,7 @@ from .func_for_views import excel_to_dict, vvod_info_pos, vvod_info_group, nomen
 
 
 def index(request):
-    positions = Positions._meta.get_fields()
-    print(positions)
-    return HttpResponse(f'{positions}')
+    return render(request, 'Positions/home_menu.html')
 
 class NewView(View):
     """Вид и пост странички новой позиции"""
