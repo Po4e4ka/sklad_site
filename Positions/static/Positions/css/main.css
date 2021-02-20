@@ -105,13 +105,13 @@ iframe {
 .container-table100 {
   width: 100%;
   min-height: 100vh;
-  background: rgba(30,29,31,1);
-  background: -moz-linear-gradient(-45deg, rgba(30,29,31,1) 0%, rgba(223,64,90,1) 100%);
-  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(30,29,31,1)), color-stop(100%, rgba(223,64,90,1)));
-  background: -webkit-linear-gradient(-45deg, rgba(30,29,31,1) 0%, rgba(223,64,90,1) 100%);
-  background: -o-linear-gradient(-45deg, rgba(30,29,31,1) 0%, rgba(223,64,90,1) 100%);
-  background: -ms-linear-gradient(-45deg, rgba(30,29,31,1) 0%, rgba(223,64,90,1) 100%);
-  background: linear-gradient(135deg, rgba(30,29,31,1) 0%, rgba(223,64,90,1) 100%);
+  background: rgb(219, 25, 132);
+  background: -moz-linear-gradient(-45deg, rgba(230,94,132,1) 0%, rgba(223,64,90,1) 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(230,94,132,1)), color-stop(100%, rgba(223,64,90,1)));
+  background: -webkit-linear-gradient(-45deg, rgba(230,94,132,1) 0%, rgba(223,64,90,1) 100%);
+  background: -o-linear-gradient(-45deg, rgb(195, 30, 195) 0%, rgba(223,64,90,1) 100%);
+  background: -ms-linear-gradient(-45deg, rgb(118, 28, 207) 0%, rgba(223,64,90,1) 100%);
+  background: linear-gradient(135deg, rgb(128, 47, 208) 0%, rgba(223,64,90,1) 100%);
 
   display: -webkit-box;
   display: -webkit-flex;
@@ -258,22 +258,22 @@ tbody tr:hover {
     top: 0;
   }
   table tbody tr td:nth-child(1):before {
-    content: "Date";
+    content: "ID";
   }
   table tbody tr td:nth-child(2):before {
-    content: "Order ID";
+    content: "Штрихкод";
   }
   table tbody tr td:nth-child(3):before {
-    content: "Name";
+    content: "Наименование";
   }
   table tbody tr td:nth-child(4):before {
-    content: "Price";
+    content: "Количество";
   }
   table tbody tr td:nth-child(5):before {
-    content: "Quantity";
+    content: "Ед. изм.";
   }
   table tbody tr td:nth-child(6):before {
-    content: "Total";
+    content: "МОЛ";
   }
 
   .column4,
