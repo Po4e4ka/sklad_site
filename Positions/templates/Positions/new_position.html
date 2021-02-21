@@ -14,6 +14,12 @@
 </head>
 
 <body>
+<form>
+<button type="submit" formaction="{% url 'index' %}" id="login" class="button b-back">
+  <span>Главное меню</span>
+    </form>
+</button>
+
 <form method="POST" action="">
     {% csrf_token %}
     <div class='box'>
@@ -21,7 +27,7 @@
             <div class='box-login-tab'></div>
             <div class='box-login-title'>
                 <div class='i i-login'></div>
-                <h2>New</h2>
+                <h2>Новая позиция</h2>
             </div>
             <div class='box-login'>
                 <div class='fieldset-body' id='login_form'>

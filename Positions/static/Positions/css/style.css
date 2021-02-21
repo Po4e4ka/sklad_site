@@ -258,7 +258,13 @@ button:focus { outline:0; }
   color: #87314e;
   margin: 6px 0;
 }
+.b-back{
+    border: #87314e 1px solid;
+  background-color: transparent;
+  color: #87314e;
+  margin: 30px 30px;
 
+}
 .b-cta {
   border: #df405a 1px solid;
   background-color: #df405a;
