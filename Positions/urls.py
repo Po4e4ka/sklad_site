@@ -22,5 +22,6 @@ urlpatterns = [
     # path('pos/', views.PosView, name="position"),
     path('new/', views.NewView.as_view(), name="new"),
     path("list/", views.PositionLisView.as_view(), name="list"),
-    path("omagad/", views.bd_func_vvod_start)
+    path("omagad/", views.bd_func_vvod_start),
+    path("list/position<int:pos_id>/", views.PositionView.as_view(), name="position")
 ]

@@ -19,9 +19,15 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href='{% static "Positions/css/util.css"%}'>
 	<link rel="stylesheet" type="text/css" href='{% static "Positions/css/main.css"%}'>
+
 <!--===============================================================================================-->
 </head>
 <body>
+<form>
+<button type="submit" formaction="{% url 'index' %}" id="login" class="button b-back">
+  <span>Главное меню</span>
+</form>
+</button>
 	<div class="limiter">
 		<div class="container-table100">
 			<div class="wrap-table100">
@@ -30,7 +36,8 @@
 				<div class="table100">
 					<table>
 						<thead>
-							<tr class="table100-head">
+							<tr  class="table100-head">
+{#                                TODO Найти способ изменять тип сортировки#}
 								<th class="column1">ID</th>
 								<th class="column2">Штрихкод</th>
 								<th class="column3">Наименование</th>
@@ -40,9 +47,9 @@
 							</tr>
 						</thead>
 						<tbody>
-                        {% for pos in positions|dictsort:sort %}
-								<tr>
-									<td class="column1">{{ pos.id}}</td>
+                        {% for pos in positions%}
+								<tr onclick="document.location='position{{ pos.id }}'">
+									<td class="column1">{{ pos.id }}</td>
 									<td class="column2">{{ pos.code|stringformat:"06d" }}</td>
 									<td class="column3">{{ pos.name }}</td>
 									<td class="column4">{{ pos.quantity }}</td>

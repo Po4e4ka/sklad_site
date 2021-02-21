@@ -2,7 +2,7 @@ from django.forms import model_to_dict
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
-from .models import Positions
+from .models import Positions, Persons
 
 from .func_for_views import excel_to_dict, vvod_info_pos, vvod_info_group, nomenklatura_test, \
     xyz_test, vvod_info_xyz, obj_test, vvod_info_obj,\
@@ -11,15 +11,13 @@ from .func_for_views import excel_to_dict, vvod_info_pos, vvod_info_group, nomen
 
 
 def index(request):
-    positions = Positions._meta.get_fields()
-    print(positions)
-    return HttpResponse(f'{positions}')
-
-
+    return render(request, 'Positions/home_menu.html')
 
 class NewView(View):
+    """Вид и пост странички новой позиции"""
     def get(self, request):
-        return render(request, 'Positions/new_position.html')
+        persons = Persons.objects.filter(level_id="3")
+        return render(request, 'Positions/new_position.html', context={"persons": persons})
 
     def post(self, request):
         # реобразование в словарь всех данных из пост
@@ -41,15 +39,16 @@ class NewView(View):
         return HttpResponse(html)
 
 class PositionLisView(View):
-    def get(self, request):
-        positions = Positions.objects.all()
-        return render(request, "Positions/positions_view_table.html", context={"positions":positions, "sort":'id'})
+    """Вид и пост списка всех позиций"""
+    def get(self, request, sort='id'):
+        print(request,sort)
+        positions = Positions.objects.order_by(sort, "id")
+        return render(request, "Positions/positions_view_table.html", context={"positions":positions})
     def post(self, request):
         pass
 
-
-
 def bd_func_vvod_start(request):
+    """Функция заноса тестовых значений из таблицы"""
     for i in excel_to_dict():
         vvod_info_pos(i)
     for i in nomenklatura_test:
@@ -63,3 +62,10 @@ def bd_func_vvod_start(request):
     for i in obj_test:
         vvod_info_obj(i)
     return HttpResponse('OK')
+
+class PositionView(View):
+    def get(self, request, pos_id):
+        pos = Positions.objects.get(pk=pos_id)
+        return render(request, "Positions/position_view.html", context={"position":pos})
+    def post(self, request):
+        pass

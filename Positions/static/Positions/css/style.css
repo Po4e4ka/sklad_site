@@ -258,7 +258,13 @@ button:focus { outline:0; }
   color: #87314e;
   margin: 6px 0;
 }
+.b-back{
+    border: #87314e 1px solid;
+  background-color: transparent;
+  color: #87314e;
+  margin: 30px 30px;
 
+}
 .b-cta {
   border: #df405a 1px solid;
   background-color: #df405a;
@@ -346,7 +352,7 @@ input[type=password]:focus {
     outline: none;
 }
 
-input[type=curz] {
+input[type=curz-1] {
     width: 70%;
     height: 32px;
     padding: 0px 10px;
@@ -362,8 +368,24 @@ input[type=curz] {
     -moz-box-shadow: inset 1px 1px 0px rgba(0,0,0,0.05), 1px 1px 0px rgba(255,255,255,1);
     box-shadow: inset 1px 1px 0px rgba(0,0,0,0.05), 1px 1px 0px rgba(255,255,255,1);
 }
+input[type=curz-2] {
+    width: 30%;
+    height: 32px;
+    padding: 0px 10px;
+    background-color: rgba(0,0,0,0.03);
+    border: none;
+    display: inline;
+    color: #303030;
+    font-size: 16px;
+    font-weight: 400;
+    float: right;
 
-input[type=curz]:focus {
+    -webkit-box-shadow: inset 1px 1px 0px rgba(0,0,0,0.05), 1px 1px 0px rgba(255,255,255,1);
+    -moz-box-shadow: inset 1px 1px 0px rgba(0,0,0,0.05), 1px 1px 0px rgba(255,255,255,1);
+    box-shadow: inset 1px 1px 0px rgba(0,0,0,0.05), 1px 1px 0px rgba(255,255,255,1);
+}
+
+input[type=curz-1]:focus {
     background-color: #f8f8c6;
     outline: none;
 }
