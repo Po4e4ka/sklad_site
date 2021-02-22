@@ -1,0 +1,36 @@
+{% extends "Positions/Tables/base_table.html" %}
+{% block content %}
+            <h1 align="center">Таблица изменений</h1>
+				<div class="table100">
+					<table>
+						<thead>
+							<tr  class="table100-head">
+{#                                TODO Найти способ изменять тип сортировки#}
+								<th class="column1">ID</th>
+								<th class="column3">Дата и время</th>
+                                <th class="column6">Позиция</th>
+								<th class="column5">количество</th>
+								<th class="column4">тип</th>
+								<th class="column6">объект</th>
+								<th class="column6">Выдал</th>
+                                <th class="column6">Принял</th>
+
+							</tr>
+						</thead>
+						<tbody>
+                        {% for change in changes%}
+								<tr onclick="document.location='change{{ pos.id }}'">
+									<td class="column1">{{ change.id }}</td>
+									<td class="column3">{{ change.time_oper|stringformat:"06d" }}</td>
+									<td class="column6">{{ change.position_id.name }}</td>
+									<td class="column5">{{ change.quantity }}</td>
+									<td class="column4">{{ change.change_type_id.name }}</td>
+									<td class="column6">{{ change.object_id.name }}</td>
+                                    <td class="column6">{{ change.person_id_mol.name }}</td>
+                                    <td class="column6">{{ change.person_id_contr.name }}</td>
+								</tr>
+                        {% endfor %}
+						</tbody>
+					</table>
+				</div>
+{% endblock %}
