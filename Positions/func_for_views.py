@@ -1,8 +1,7 @@
 # from django.db.models import Max, Avg
 from django.forms import model_to_dict
 from django.http import HttpResponse
-from .models import Positions, Groups, Xyz, Levels, Persons, Objects, \
-    Change_types, Change_qantity
+from .models import Positions, Groups, Xyz, Levels, Persons, Objects, Change_types, Change_qantity
 import pandas as pd
 from datetime import datetime
 import logging
@@ -24,16 +23,16 @@ def excel_to_dict(file="Positions/Копия 1.xls"):
     return result
 
 
-def data_test(data):
-    if type(data) != dict:
-        logging.error("Wrong type of data")
-        return TypeError
-    else:
-        return True
+# def data_test(data):
+#     if type(data) != dict:
+#         logging.error("Wrong type of data")
+#         return TypeError
+#     else:
+#         return True
 
 
 def vvod_info_pos(data: dict):
-    data_test(data)
+    # data_test(data)
     if "name" not in data:
         logging.info("Positions.name is absent")
         return HttpResponse("Bad Request: positions.name is absent")
@@ -44,9 +43,11 @@ def vvod_info_pos(data: dict):
             return HttpResponse("Bad Request: positions.name is already in base")
         else:
             position = Positions(**data)
+            if "quantity" not in data:
+                position.quantity = 0.0
             position.save()
             logging.info("Сохранено в базе %s, %s, %s", position.id, position.name, position.quantity)
-            vvod_info_ch_qant(data, type=5)
+            vvod_info_ch_type(data, 5)
     except Exception as e:
         logging.error("Positions is not saved %s", e)
         return HttpResponse("Bad Request: Positions is not saved")
@@ -59,7 +60,7 @@ nomenklatura_test = [{"name": "материалы"},
 
 
 def vvod_info_group(data: dict):
-    data_test(data)
+    # data_test(data)
     if "name" not in data:
         logging.info("Group.name is absent")
         return HttpResponse("Bad Request: group.name is absent")
@@ -72,7 +73,7 @@ def vvod_info_group(data: dict):
             group = Groups(**data)
             group.save()
             logging.info("Сохранено в базе %s, %s", group.id, group.name)
-            vvod_info_ch_qant(data, type=6)
+            vvod_info_ch_qant(data, 6)
     except Exception as e:
         logging.error("Groups is not saved %s", e)
         return HttpResponse("Bad Request: Groups is not saved")
@@ -81,12 +82,12 @@ def vvod_info_group(data: dict):
 xyz_test = [{"X": "a", "y": 1, "z": 1},
             {"X": "a", "y": 2, "z": 1},
             {"X": "a", "y": 3, "z": 5},
-            {"z": 4}]
+            {"X": "a", "y": 3, "z": 4}]
 
 
 def vvod_info_xyz(data: dict):
     """доделать другую проверку - чтобы выбиралось из закрытого перечня координат"""
-    data_test(data)
+    # data_test(data)
     try:
         if "X" not in data or "y" not in data:
             logging.info("Обязательные координаты X и y - не определены")
@@ -101,7 +102,7 @@ def vvod_info_xyz(data: dict):
             xyz = Xyz(**data)
             xyz.save()
             logging.info("Сохранено в базе %s, %s, %s", xyz.id, xyz.X, xyz.y, xyz.z)
-            vvod_info_ch_qant(data, type=7)
+            vvod_info_ch_qant(data, 7)
     except Exception as e:
         logging.error("Groups is not saved %s", e)
         return HttpResponse("Bad Request: Xyz is not saved")
@@ -115,7 +116,7 @@ level_test = [{"name": "top"},
 
 
 def vvod_info_level(data: dict):
-    data_test(data)
+    # data_test(data)
     """доделать другую проверку - добавлять уровни только админу"""
     if "name" not in data:
         logging.info("Levels.name is absent")
@@ -129,7 +130,7 @@ def vvod_info_level(data: dict):
             level = Levels(**data)
             level.save()
             logging.info("Сохранено в базе: %s, %s", level.id, level.name)
-            vvod_info_ch_qant(data, type=8)
+            vvod_info_ch_qant(data, 8)
     except Exception as e:
         logging.error("Levels is not saved %s", e)
         return HttpResponse("Bad Request: Levels is not saved")
@@ -142,7 +143,7 @@ person_test = [{"name": "Иванов Иван"},
 
 
 def vvod_info_person(data: dict):
-    data_test(data)
+    # data_test(data)
     if "name" not in data:
         logging.info("Persons.name is absent")
         return HttpResponse("Bad Request: person.name is absent")
@@ -155,18 +156,18 @@ def vvod_info_person(data: dict):
             person = Persons(**data)
             person.save()
             logging.info("Сохранено в базе: %s, %s", person.id, person.name)
-            vvod_info_ch_qant(data, type=9)
+            vvod_info_ch_qant(data, 9)
     except Exception as e:
         logging.error("Persons is not saved %s", e)
         return HttpResponse("Bad Request: Persons is not saved")
 
 
-obj_test = [{"name": "object1"},
-    {"name": "object2"}, {}]
+obj_test = [{"name": "object4"},
+    {"name": "object5"}, {"name": "object6"}]
 
 
 def vvod_info_obj(data: dict):
-    data_test(data)
+    # data_test(data)
     if "name" not in data:
         logging.info("Objects.name is absent")
         return HttpResponse("Bad Request: objects.name is not defined")
@@ -179,7 +180,7 @@ def vvod_info_obj(data: dict):
             obj = Objects(**data)
             obj.save()
             logging.info("Сохранено в базе: %s, %s", obj.id, obj.name)
-            vvod_info_ch_qant(data, type=10)
+            vvod_info_ch_qant(data, 10)
     except Exception as e:
         logging.error("Objects is not saved %s", e)
         return HttpResponse("Bad Request: Objects is not saved")
@@ -188,12 +189,12 @@ def vvod_info_obj(data: dict):
 change_test = [{"name": "prihod", "znak": False},
     {"name": "rashod", "znak": True},
     {"name": "izlishki", "znak": False},
-    {"": "", "znak": True}]
+    {"name": "nedostacha", "znak": True}]
 
 
 def vvod_info_ch_type(data: dict):
     """закрытый перечень операций, права изменения только у админа"""
-    data_test(data)
+    # data_test(data)
     if "name" not in data:
         logging.info("Change_types.name is absent")
         return HttpResponse("Bad Request: change_types.name is not defined")
@@ -206,19 +207,18 @@ def vvod_info_ch_type(data: dict):
             ch_type = Change_types(**data)
             ch_type.save()
             logging.info("Сохранено в базе: %s, %s", ch_type.id, ch_type.name)
-            vvod_info_ch_qant(data, type=11)
+            vvod_info_ch_qant(data, 11)
     except Exception as e:
         logging.error("Change_types is not saved %s", e)
         return HttpResponse("Bad Request: Change_types is not saved")
 
 
-qant_test = {"position_id": Positions.objects.filter(id=1).get().id, "quantity": 100.0}
-type_test = 2
-
-
-def vvod_info_ch_qant(data: dict = qant_test, type=type_test):
-    data_test(data)
-    # print(data)
+# qant_test = {"position_id": Positions.objects.filter(id=1).get().id, "quantity": 100.0}
+# type_test = 2
+#
+#
+def vvod_info_ch_qant(data: dict, type):
+    # data_test(data)
     ch_qant = Change_qantity()
     ch_qant.time_oper = datetime.today()
     try:
@@ -232,15 +232,13 @@ def vvod_info_ch_qant(data: dict = qant_test, type=type_test):
                 ch_qant.quantity = data["quantity"]
 
                 pos = Positions.objects.filter(id=data["position_id"]).get()
-                # print(Change_types.objects.filter(id=type).get().znak)
                 pos.quantity += (-1) ** Change_types.objects.filter(id=type).get().znak * data["quantity"]
                 pos.save()
                 logging.info("Сохранено в базе: %s, %s, %s", pos.id, pos.name, pos.quantity)
         else:
             logging.info("записана операция с нулевым изменением количества")
-            ch_qant.change_type_id = Change_types.objects.filter(id=5).get()
+            ch_qant.change_type_id = Change_types.objects.filter(id=type).get()
         ch_qant.save()
-        # print(model_to_dict(ch_qant))
     except Exception as e:
         logging.error("Change_qantity is not saved %s", e)
         return HttpResponse("Bad Request: Change_qantity is not saved")

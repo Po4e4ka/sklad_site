@@ -24,6 +24,7 @@ class Persons (models.Model):
     name = models.TextField(null=True) # Фамилия И.О.
     level_id = models.ForeignKey(Levels,on_delete=models.SET_NULL, null=True) # Уровень доступа
 
+
 class Positions (models.Model):
     # функция ввода vvod_info_pos проверяет отсутствие дублирования по полю "name"
     id = models.AutoField(primary_key=True) # ИД комлектующего
