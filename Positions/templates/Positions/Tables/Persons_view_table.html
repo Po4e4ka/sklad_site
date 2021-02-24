@@ -1,0 +1,25 @@
+{% extends "Positions/Tables/base_table.html" %}
+{% block content %}
+            <h1 align="center">Таблица работников</h1>
+				<div class="table100">
+					<table>
+						<thead>
+							<tr  class="table100-head">
+{#                                TODO Найти способ изменять тип сортировки#}
+								<th class="column1">ID</th>
+								<th class="column3">ФИО</th>
+								<th class="column6">Уровень доступа</th>
+							</tr>
+						</thead>
+						<tbody>
+                        {% for pers in persons%}
+								<tr onclick="document.location='position{{ pers.id }}'">
+									<td class="column1">{{ pers.id }}</td>
+									<td class="column3">{{ pers.name }}</td>
+									<td class="column6">{{ pers.level_id.name }}</td>
+								</tr>
+                        {% endfor %}
+						</tbody>
+					</table>
+				</div>
+{% endblock %}

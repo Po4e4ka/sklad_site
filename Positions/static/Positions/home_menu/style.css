@@ -8,10 +8,17 @@ html {
   z-index: 1;
 }
 #mainnav li {
-  margin: 85px 0;
+  margin: 100px 0;
   left: -550px;
   position: relative;
   display: none;
+}
+
+#mainnav h1 {
+  color: #fff;
+  text-shadow: 2px 2px 0 #000;
+  text-decoration: none;
+  font-size: 3.5em;
 }
 #mainnav a {
   color: #fff;
