@@ -1,4 +1,6 @@
 # from django.db.models import Max, Avg
+import random
+
 from django.forms import model_to_dict
 from django.http import HttpResponse
 from .models import Positions, Groups, Xyz, Levels, Persons, Objects, Change_types, Change_qantity
@@ -45,9 +47,11 @@ def vvod_info_pos(data: dict):
             position = Positions(**data)
             if "quantity" not in data:
                 position.quantity = 0.0
+            if "mol" not in data:
+                position.mol = Persons.objects.filter(id=random.randint(1,5)).get()  # доделать генерацию
             position.save()
             logging.info("Сохранено в базе %s, %s, %s", position.id, position.name, position.quantity)
-            vvod_info_ch_type(data, 5)
+            vvod_info_ch_qant(data, 5)
     except Exception as e:
         logging.error("Positions is not saved %s", e)
         return HttpResponse("Bad Request: Positions is not saved")
@@ -147,7 +151,6 @@ def vvod_info_person(data: dict):
     if "name" not in data:
         logging.info("Persons.name is absent")
         return HttpResponse("Bad Request: person.name is absent")
-
     try:
         if Persons.objects.filter(name=data["name"]).exists():
             logging.info("Есть в базе %s", data["name"])
@@ -163,7 +166,7 @@ def vvod_info_person(data: dict):
 
 
 obj_test = [{"name": "object4"},
-    {"name": "object5"}, {"name": "object6"}]
+    {"name": "object5"}, {"name": "object7"}]
 
 
 def vvod_info_obj(data: dict):
@@ -186,10 +189,17 @@ def vvod_info_obj(data: dict):
         return HttpResponse("Bad Request: Objects is not saved")
 
 
-change_test = [{"name": "prihod", "znak": False},
-    {"name": "rashod", "znak": True},
-    {"name": "izlishki", "znak": False},
-    {"name": "nedostacha", "znak": True}]
+change_test = [{"id": 1, "name": "prihod", "znak": False},
+             {"id": 2, "name": "rashod", "znak": True},
+             {"id": 3, "name": "izlishki", "znak": False},
+             {"id": 4, "name": "nedostacha", "znak": True},
+             {"id": 5, "name": "vvod_info_pos"},
+             {"id": 6, "name": "vvod_info_group"},
+             {"id": 7, "name": "vvod_info_xyz"},
+             {"id": 8, "name": "vvod_info_level"},
+             {"id": 9, "name": "vvod_info_person"},
+             {"id": 10, "name": "vvod_info_obj"},
+             {"id": 11, "name": "vvod_info_ch_type"}]
 
 
 def vvod_info_ch_type(data: dict):
@@ -229,16 +239,24 @@ def vvod_info_ch_qant(data: dict, type):
             else:
                 ch_qant.change_type_id = Change_types.objects.filter(id=type).get()
                 ch_qant.position_id = Positions.objects.filter(id=data["position_id"]).get()
-                ch_qant.quantity = data["quantity"]
+                if "quantity" in data:
+                    ch_qant.quantity = data["quantity"]
+                else:
+                    ch_qant.quantity = 0.0
 
                 pos = Positions.objects.filter(id=data["position_id"]).get()
                 pos.quantity += (-1) ** Change_types.objects.filter(id=type).get().znak * data["quantity"]
                 pos.save()
                 logging.info("Сохранено в базе: %s, %s, %s", pos.id, pos.name, pos.quantity)
         else:
-            logging.info("записана операция с нулевым изменением количества")
             ch_qant.change_type_id = Change_types.objects.filter(id=type).get()
-        ch_qant.save()
+            logging.info("записана операция с нулевым изменением количества, тип %, %", type, Change_types.objects.filter(id=type).get().name)
+
+        if "person_id_mol" not in data:
+            ch_qant.person_id_mol = Persons.objects.filter(id=random.randint(1, 5)).get() # доделать генерацию
+        if "person_id_contr" not in data:
+            ch_qant.person_id_contr = Persons.objects.filter(id=random.randint(1, 5)).get()  # доделать генерацию
     except Exception as e:
         logging.error("Change_qantity is not saved %s", e)
         return HttpResponse("Bad Request: Change_qantity is not saved")
+    ch_qant.save()

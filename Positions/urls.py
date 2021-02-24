@@ -15,10 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from . import views
+from . import views_poch
 
 urlpatterns = [
-    path('', views.index, name="index"),
+    path('', views_poch.index, name="index"),
 #    path('index/', views.index_group, name="index_group"),
     # path('pos/', views.PosView, name="position"),
 ]

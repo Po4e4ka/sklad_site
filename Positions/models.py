@@ -33,8 +33,8 @@ class Positions (models.Model):
     groups_id = models.ForeignKey(Groups, on_delete=models.SET_NULL, null=True) # Номенклатурная группа
     quantity = models.FloatField(null=True) # Количество
     ediz = models.TextField(null=True) # Единица измерения
-    photo1 = models.ImageField(null=True) # Фото 1
-    photo2 = models.ImageField(null=True) # Фото 2 (в упаковке)
+    photo1 = models.ImageField(null=True, blank=True, upload_to="images/") # Фото 1
+    photo2 = models.ImageField(null=True, blank=True, upload_to="images/") # Фото 2 (в упаковке)
     mol = models.ForeignKey(Persons, on_delete=models.SET_NULL, null=True) # Материально-ответственное лицо
     xyz_id = models.ForeignKey(Xyz, on_delete=models.SET_NULL, null=True) # Местонахождение
 

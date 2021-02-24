@@ -15,6 +15,7 @@ def change_info_pos(data: dict = old_pos):
     if Positions.objects.filter(id=data["id"]).exists():
 #        position = Positions.objects.filter(id=data["id"])
         position = Positions(**data)
+
         position.save()
         print(f"Сохранено в базе: {position.id}, {position.name}, {position.quantity}")
         vvod_info_ch_qant(data, type=5)
@@ -51,7 +52,7 @@ def change_info_ch_type(data: dict = change_test_new):
             else:
                 ch_type.save()
                 logging.info("Сохранено в базе: %s, %s", ch_type.id, ch_type.name)
-                vvod_info_ch_qant(data, type=11)
+                vvod_info_ch_qant(data, 11)
         else:
             logging.info("Обязательный атрибут name не определен")
             return HttpResponse("Bad Request: ch_type.name is absent")
