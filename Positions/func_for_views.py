@@ -250,12 +250,12 @@ def vvod_info_ch_qant(data: dict, type):
                 logging.info("Сохранено в базе: %s, %s, %s", pos.id, pos.name, pos.quantity)
         else:
             ch_qant.change_type_id = Change_types.objects.filter(id=type).get()
-            logging.info("записана операция с нулевым изменением количества, тип %, %", type, Change_types.objects.filter(id=type).get().name)
+            logging.info("записана операция с нулевым изменением количества, тип %s, %s", type, Change_types.objects.filter(id=type).get().name)
 
-        if "person_id_mol" not in data:
-            ch_qant.person_id_mol = Persons.objects.filter(id=random.randint(1, 5)).get() # доделать генерацию
-        if "person_id_contr" not in data:
-            ch_qant.person_id_contr = Persons.objects.filter(id=random.randint(1, 5)).get()  # доделать генерацию
+        # if "person_id_mol" not in data:
+        #     ch_qant.person_id_mol = Persons.objects.filter(id=random.randint(1, 5)).get() # доделать генерацию
+        # if "person_id_contr" not in data:
+        #     ch_qant.person_id_contr = Persons.objects.filter(id=random.randint(1, 5)).get()  # доделать генерацию
     except Exception as e:
         logging.error("Change_qantity is not saved %s", e)
         return HttpResponse("Bad Request: Change_qantity is not saved")

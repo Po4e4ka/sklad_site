@@ -7,8 +7,8 @@ import logging
 logging.basicConfig(filename="sample.log", format='[%(asctime)s] [%(levelname)s] => %(message)s', level=logging.INFO)
 
 
-new_pos = {"id": 1, "name": "материалы", "quantity" : 100.0}
-old_pos = {"id": 1, "name": "12W/12-24V/DIN БЛОК ПИТАНИЯ FARADAY", "quantity" : 0.0}
+new_pos = {"id": 1, "name": "материалы", "quantity": 100.0}
+old_pos = {"id": 1, "name": "12W/12-24V/DIN БЛОК ПИТАНИЯ FARADAY", "quantity": 0.0}
 
 def change_info_pos(data: dict = old_pos):
     # data_test(data)
