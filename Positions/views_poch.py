@@ -37,7 +37,7 @@ def index(request):
     # for i in change_test_new:
     #     change_info_ch_type(i)
 
-    positions = find_pos('камера', 45)
+    positions = find_pos('видео')
 
 
     return HttpResponse('OK')

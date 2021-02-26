@@ -10,23 +10,24 @@ logging.basicConfig(filename="sample.log", format='[%(asctime)s] [%(levelname)s]
 
 # def find_pos(data: str = False, code_pos: int = False):
 def find_pos(data: str = False, code_pos: int = False):
+    pos_find = Positions.objects.all()
     try:
         if data and not code_pos:
-            if Positions.objects.filter(name__icontains=data):
-                logging.info("Выбрано %s позиций", len(Positions.objects.filter(name__icontains=data)))
-                return Positions.objects.filter(name__icontains=data)
+            if pos_find.filter(name__icontains=data):
+                logging.info("Выбрано %s позиций", len(pos_find.filter(name__icontains=data)))
+                return pos_find.filter(name__icontains=data)
             else:
                 logging.info("По запросу %s позиций не найдено", str)
         if not data and code_pos:
-            if Positions.objects.filter(code__icontains=code_pos):
-                logging.info("Выбрано %s позиций", len(Positions.objects.filter(code__icontains=code_pos)))
-                return Positions.objects.filter(code__icontains=code_pos)
+            if pos_find.filter(code__icontains=code_pos):
+                logging.info("Выбрано %s позиций", len(pos_find.filter(code__icontains=code_pos)))
+                return pos_find.filter(code__icontains=code_pos)
             else:
                 logging.info("По запросу %s позиций не найдено", code_pos)
         if data and code_pos:
-            if Positions.objects.filter(code__icontains=code_pos):
-                logging.info("Выбрано %s позиций", len(Positions.objects.filter(code__icontains=code_pos).filter(name__icontains=data)))
-                return Positions.objects.filter(code__icontains=code_pos).filter(name__icontains=data)
+            if pos_find.filter(code__icontains=code_pos):
+                logging.info("Выбрано %s позиций", len(pos_find.filter(code__icontains=code_pos).filter(name__icontains=data)))
+                return pos_find.filter(code__icontains=code_pos).filter(name__icontains=data)
             else:
                 logging.info("По запросу %s и %ы позиций не найдено", data, code_pos)
     except Exception as e:
