@@ -41,12 +41,6 @@ def index(request):
     #     change_info_ch_type(i)
 
     # find_pos('камера')
-    find_change('2021, 2, 25')
+    find_change(False, datetime.date(2021,2,26), 5)
 
     return HttpResponse('OK')
-
-
-# def index_group(request):
-#     for i in nomenklatura_test:
-#         vvod_info_group(i)
-#     return HttpResponse('Nomen OK')
