@@ -1,9 +1,11 @@
+import datetime
+
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
 
 from .func_for_change import change_info_pos, change_info_ch_type, change_test_new
-from .func_for_find import find_pos
+from .func_for_find import find_pos, find_change
 from .func_for_views import vvod_info_ch_type, change_test, excel_to_dict, vvod_info_pos, \
     vvod_info_ch_qant, vvod_info_group, nomenklatura_test, \
     xyz_test, vvod_info_xyz, obj_test, vvod_info_obj, \
@@ -12,6 +14,7 @@ from .func_for_views import vvod_info_ch_type, change_test, excel_to_dict, vvod_
 
 from .models import Positions, Groups
 import sqlite3
+
 
 
 def index(request):
@@ -37,8 +40,8 @@ def index(request):
     # for i in change_test_new:
     #     change_info_ch_type(i)
 
-    positions = find_pos('видео')
-
+    # find_pos('камера')
+    find_change('2021, 2, 25')
 
     return HttpResponse('OK')
 
