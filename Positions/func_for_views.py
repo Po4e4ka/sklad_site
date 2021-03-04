@@ -7,6 +7,7 @@ from .models import Positions, Groups, Xyz, Levels, Persons, Objects, Change_typ
 import pandas as pd
 from datetime import datetime
 import logging
+from sklad_exceptions import DataTypeError
 
 # filemode="w"
 logging.basicConfig(filename="sample.log", format='[%(asctime)s] [%(levelname)s] => %(message)s', level=logging.INFO)
@@ -24,17 +25,15 @@ def excel_to_dict(file="Positions/Копия 1.xls"):
         result.append({"name": row['номенклатура'], "quantity": row["количество"], "ediz": row["ед.измер."]})
     return result
 
-
-# def data_test(data):
-#     if type(data) != dict:
-#         logging.error("Wrong type of data")
-#         return TypeError
-#     else:
-#         return True
+def data_test(data):
+    if type(data) != dict:
+        return DataTypeError
+    else:
+        return True
 
 
 def vvod_info_pos(data: dict):
-    # data_test(data)
+    data_test(data)
     if "name" not in data:
         logging.info("Positions.name is absent")
         return HttpResponse("Bad Request: positions.name is absent")
@@ -64,7 +63,7 @@ nomenklatura_test = [{"name": "материалы"},
 
 
 def vvod_info_group(data: dict):
-    # data_test(data)
+    data_test(data)
     if "name" not in data:
         logging.info("Group.name is absent")
         return HttpResponse("Bad Request: group.name is absent")
@@ -91,7 +90,7 @@ xyz_test = [{"X": "a", "y": 1, "z": 1},
 
 def vvod_info_xyz(data: dict):
     """доделать другую проверку - чтобы выбиралось из закрытого перечня координат"""
-    # data_test(data)
+    data_test(data)
     try:
         if "X" not in data or "y" not in data:
             logging.info("Обязательные координаты X и y - не определены")
@@ -120,7 +119,7 @@ level_test = [{"name": "top"},
 
 
 def vvod_info_level(data: dict):
-    # data_test(data)
+    data_test(data)
     """доделать другую проверку - добавлять уровни только админу"""
     if "name" not in data:
         logging.info("Levels.name is absent")
@@ -147,7 +146,7 @@ person_test = [{"name": "Иванов Иван"},
 
 
 def vvod_info_person(data: dict):
-    # data_test(data)
+    data_test(data)
     if "name" not in data:
         logging.info("Persons.name is absent")
         return HttpResponse("Bad Request: person.name is absent")
@@ -170,7 +169,7 @@ obj_test = [{"name": "object4"},
 
 
 def vvod_info_obj(data: dict):
-    # data_test(data)
+    data_test(data)
     if "name" not in data:
         logging.info("Objects.name is absent")
         return HttpResponse("Bad Request: objects.name is not defined")
@@ -204,7 +203,7 @@ change_test = [{"id": 1, "name": "prihod", "znak": False},
 
 def vvod_info_ch_type(data: dict):
     """закрытый перечень операций, права изменения только у админа"""
-    # data_test(data)
+    data_test(data)
     if "name" not in data:
         logging.info("Change_types.name is absent")
         return HttpResponse("Bad Request: change_types.name is not defined")
@@ -225,10 +224,10 @@ def vvod_info_ch_type(data: dict):
 
 # qant_test = {"position_id": Positions.objects.filter(id=1).get().id, "quantity": 100.0}
 # type_test = 2
-#
-#
+
+
 def vvod_info_ch_qant(data: dict, type):
-    # data_test(data)
+    data_test(data)
     ch_qant = Change_qantity()
     ch_qant.time_oper = datetime.today()
     try:

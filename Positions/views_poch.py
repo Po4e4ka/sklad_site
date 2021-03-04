@@ -34,13 +34,13 @@ def index(request):
     # for i in excel_to_dict():
     #     vvod_info_pos(i)
 
-    # change_info_pos()
+    change_info_pos()
      # positions = Positions._meta.get_fields()
 
     # for i in change_test_new:
     #     change_info_ch_type(i)
 
     # find_pos('камера')
-    find_change(False, datetime.date(2021,2,26), 5)
+    # find_change(datetime.date(2021,2,25), datetime.date(2021,2,26), 5)
 
     return HttpResponse('OK')
