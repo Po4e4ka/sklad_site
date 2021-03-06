@@ -62,6 +62,6 @@ class Change_qantity (models.Model):
     object_id = models.ForeignKey(Objects, on_delete=models.SET_NULL, null=True)  # ИД объекта
 
 
-class Dokuments (models.Model):
+class Documents (models.Model):
     id = models.AutoField(primary_key=True)  # ИД объекта
     file_name = models.FileField(null=True)  # Наименование объекта
