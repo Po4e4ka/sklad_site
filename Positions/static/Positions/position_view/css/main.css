@@ -158,7 +158,7 @@ iframe {
   font-family: Poppins-Regular;
   font-size: 15px;
   line-height: 1.6;
-  color: #00ad5f;
+  color: #3b868e;
 }
 
 /*==================================================================
@@ -188,7 +188,7 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #f2f2f2;
+  background: #6dc3b2;
   
 }
 
@@ -333,7 +333,7 @@ textarea.input100 {
   top: -1px;
   left: -1px;
   pointer-events: none;
-  border: 1px solid #00ad5f;
+  border: 1px solid #3b868e;
 
   visibility: hidden;
   opacity: 0;
@@ -389,7 +389,7 @@ textarea.input100 {
   min-width: 200px;
   height: 50px;
   border-radius: 2px;
-  background: #00ad5f;
+  background: #3b868e;
 
   font-family: Montserrat-Bold;
   font-size: 12px;
