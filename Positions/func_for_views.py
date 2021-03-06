@@ -25,15 +25,9 @@ def excel_to_dict(file="Positions/Копия 1.xls"):
         result.append({"name": row['номенклатура'], "quantity": row["количество"], "ediz": row["ед.измер."]})
     return result
 
-# def data_test(data):
-#     if type(data) != dict:
-#         return DataTypeError
-#     else:
-#         return True
-
 
 def vvod_info_pos(data: dict):
-    data_test(data)
+    # data_test(data)
     if "name" not in data:
         logging.info("Positions.name is absent")
         return HttpResponse("Bad Request: positions.name is absent")
