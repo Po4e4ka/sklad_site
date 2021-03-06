@@ -34,7 +34,7 @@ def index(request):
     # for i in excel_to_dict():
     #     vvod_info_pos(i)
 
-    change_info_pos()
+    # change_info_pos()
      # positions = Positions._meta.get_fields()
 
     # for i in change_test_new:

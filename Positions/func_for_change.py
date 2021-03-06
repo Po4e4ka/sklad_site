@@ -1,4 +1,5 @@
-from .func_for_views import vvod_info_ch_qant, data_test
+from .func_for_views import vvod_info_ch_qant
+    # , data_test
 from django.http import HttpResponse
 from .models import Positions, Change_types
 import logging
@@ -10,8 +11,8 @@ logging.basicConfig(filename="sample.log", format='[%(asctime)s] [%(levelname)s]
 new_pos = {"id": 1, "name": "материалы", "quantity": 100.0}
 old_pos = {"id": 1, "name": "12W/12-24V/DIN БЛОК ПИТАНИЯ FARADAY", "quantity": 0.0}
 
-def change_info_pos(data: dict = new_pos):
-    data_test(data)
+def change_info_pos(data: dict = old_pos):
+    # data_test(data)
     if Positions.objects.filter(id=data["id"]).exists():
 #        position = Positions.objects.filter(id=data["id"])
         position = Positions(**data)
@@ -40,7 +41,7 @@ change_test_new = [
 
 
 def change_info_ch_type(data: dict = change_test_new):
-    data_test(data)
+    # data_test(data)
     try:
         ch_type = Change_types(**data)
         if "name" in data:
