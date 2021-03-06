@@ -42,7 +42,19 @@ a:hover {
 }
 
 /* ------------------------------------ */
-h1,h2,h3,h4,h5,h6 {margin: 0px;}
+h2,h3,h4,h5,h6 {margin: 0px;}
+
+h1 {
+  font-size: 3em;
+  horiz-align: center;
+  text-align: center;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 2px 2px 0 #000;
+  line-height: 56px;
+  padding: 0 10px;
+  background-color: #3b868e;
+}
 
 p {margin: 0px;}
 
@@ -110,13 +122,7 @@ iframe {
 .container-table100 {
   width: 100%;
   min-height: 100vh;
-  background: rgb(219, 25, 132);
-  background: -moz-linear-gradient(-45deg, rgba(230,94,132,1) 0%, rgba(223,64,90,1) 100%);
-  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(230,94,132,1)), color-stop(100%, rgba(223,64,90,1)));
-  background: -webkit-linear-gradient(-45deg, rgba(230,94,132,1) 0%, rgba(223,64,90,1) 100%);
-  background: -o-linear-gradient(-45deg, rgb(195, 30, 195) 0%, rgba(223,64,90,1) 100%);
-  background: -ms-linear-gradient(-45deg, rgb(118, 28, 207) 0%, rgba(223,64,90,1) 100%);
-  background: linear-gradient(135deg, rgb(128, 47, 208) 0%, rgba(223,64,90,1) 100%);
+  background-color: #b4d4d3;
 
   display: -webkit-box;
   display: -webkit-flex;
@@ -151,7 +157,7 @@ table td, table th {
 }
 table thead tr {
   height: 60px;
-  background: #36304a;
+  background: #3b868e;
 }
 table tbody tr {
   height: 50px;
@@ -307,3 +313,4 @@ tbody tr:hover {
     padding-right: 15px;
   }
 }
+
