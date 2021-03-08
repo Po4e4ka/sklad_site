@@ -1,0 +1,20 @@
+<!DOCTYPE html
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Выдача позиции</title>
+</head>
+<body>
+    <form>
+    <p>
+        <label for='mol'>Ответственный</label>
+        <select id='mol' name='mol'>
+            <option value="" hidden>Выберите ответственного</option>
+            {% for person in persons %}
+                <option value="{{ person.id }}">{{ person.name }}</option>
+            {% endfor %}
+        </select>
+    </p>
+    </form>
+</body>
+</html>

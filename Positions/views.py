@@ -26,7 +26,10 @@ class NewView(View):
 # Таблица позиций
 class PositionLisView(View):
     """Вид и пост списка всех позиций"""
-    def get(self, request, sort='id'):
+    def get(self, request):
+        sort = request.GET.get("sort")
+        if sort is None:
+            sort = "id"
         positions = Positions.objects.order_by(sort, "id")
         return render(request, "Positions/Tables/positions_view_table.html", context={"positions":positions})
     def post(self, request):

@@ -1,11 +1,11 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 from . import views
 
 urlpatterns = [
     path('', views.index, name="index"),  # стартовая страница
     path('new/', views.NewView.as_view(), name="new"),  # новая позиция
-    path("list/", views.PositionLisView.as_view(), name="list"),  # таблица позиций
+    re_path(r"^list/$", views.PositionLisView.as_view(), name="list"),  # таблица позиций
     path("persons/", views.PersonListView.as_view(), name="persons"),  # таблица персон
     path("changes/", views.ChangeListView.as_view(), name="changes"), #таблица изменений
     # path("omagad/", views.bd_func_vvod_start),  # для тестов пост страница
