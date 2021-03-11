@@ -21,8 +21,14 @@
     document.querySelectorAll('.table_sort thead').forEach(tableTH => tableTH.addEventListener('click', () => getSort(event)));
 
 });</script>
+    {% if check %}
+    <input type="checkbox" onclick="document.location='{% url 'list' %}?null=0'" checked/><label>Показывать позиции с 0 количеством</label><br><br>
 
-            <h1>Таблица наименований</h1>
+    {% else %}
+    <input type="checkbox" onclick="document.location='{% url 'list' %}?null=1'"/><label>Показывать позиции с 0 количеством</label><br><br>
+
+    {% endif %}
+            <h1>Таблица наименований</h1><br>
 				<div class="table100">
 					<table class="table_sort">
 						<thead>

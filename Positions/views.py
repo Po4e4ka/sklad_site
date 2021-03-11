@@ -27,11 +27,12 @@ class NewView(View):
 class PositionLisView(View):
     """Вид и пост списка всех позиций"""
     def get(self, request):
-        sort = request.GET.get("sort")
-        if sort is None:
-            sort = "id"
-        positions = Positions.objects.order_by(sort, "id")
-        return render(request, "Positions/Tables/positions_view_table.html", context={"positions":positions})
+        check = request.GET.get("null") == '1'
+        if check:
+            positions = Positions.objects.all()
+        else:
+            positions = Positions.objects.exclude(quantity=0).exclude(quantity=None)
+        return render(request, "Positions/Tables/positions_view_table.html", context={"positions":positions, "check":check})
     def post(self, request):
         pass
 # Позиция

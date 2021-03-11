@@ -330,3 +330,8 @@ th.sorted[data-order="-1"]::after {
 th.sorted[data-order="1"]::after {
 	content: "▲"
 }
+
+input[type=checkbox],
+input[type=radio]{
+  size: A3;
+}
