@@ -1,5 +1,4 @@
 
-
 class DataTypeError(Exception):
     """An error when TypeError data - data isn't dict"""
     def __init__(self, data, message="Ошибка формата поданных данных (не словарь)"):

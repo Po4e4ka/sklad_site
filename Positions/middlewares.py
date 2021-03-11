@@ -1,6 +1,6 @@
 
 from django.http import JsonResponse, request
-from sklad_exceptions import DataTypeError
+from .sklad_exceptions import DataTypeError
 
 
 class Middleware:
