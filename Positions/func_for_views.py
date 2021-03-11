@@ -41,7 +41,6 @@ def vvod_info_pos(data):
             if "name" not in data:
                 logging.info("Positions.name is absent")
                 return HttpResponse("Bad Request: positions.name is absent")
-
             try:
                 if Positions.objects.filter(name=data["name"]).exists():
                     logging.info("Есть в базе %s", data['name'])
@@ -50,8 +49,6 @@ def vvod_info_pos(data):
                     position = Positions(**data)
                     if "quantity" not in data:
                         position.quantity = 0.0
-                    if "mol" not in data:
-                        position.mol = Persons.objects.filter(id=random.randint(1,5)).get()  # доделать генерацию
                     position.save()
                     logging.info("Сохранено в базе %s, %s, %s", position.id, position.name, position.quantity)
                     vvod_info_ch_qant(data, 5)
@@ -65,19 +62,17 @@ def vvod_info_pos(data):
         return HttpResponse("Bad format of data")
 
 
-nomenklatura_test = [{"name": "материалы"},
-                     {"name": "комплектующие и детали"},
-                     {"name": "запасные части"},
+nomenklatura_test = [{"name": "запасные части"},
                      {"name": "оборудование"}]
 
 
 def vvod_info_group(data: dict):
     try:
         if data_test(data):
+
             if "name" not in data:
                 logging.info("Group.name is absent")
                 return HttpResponse("Bad Request: group.name is absent")
-
             try:
                 if Groups.objects.filter(name=data["name"]).exists():
                     logging.info("Есть в базе %s", data['name'])
@@ -97,8 +92,6 @@ def vvod_info_group(data: dict):
         return HttpResponse("Bad format of data")
 
 xyz_test = [{"X": "a", "y": 1, "z": 1},
-            {"X": "a", "y": 2, "z": 1},
-            {"X": "a", "y": 3, "z": 5},
             {"X": "a", "y": 3, "z": 4}]
 
 
@@ -232,7 +225,6 @@ def vvod_info_ch_type(data: dict):
             if "name" not in data:
                 logging.info("Change_types.name is absent")
                 return HttpResponse("Bad Request: change_types.name is not defined")
-
             try:
                 if Change_types.objects.filter(name=data["name"]).exists():
                     logging.info("Есть в базе %s", data['name'])
@@ -251,8 +243,7 @@ def vvod_info_ch_type(data: dict):
     except DataTypeError:
         return HttpResponse("Bad format of data")
 
-# qant_test = {"position_id": Positions.objects.filter(id=1).get().id, "quantity": 100.0}
-# type_test = 2
+qant_test = {"position_id": 2, "quantity": 100.0}
 
 
 def vvod_info_ch_qant(data: dict, type):
@@ -260,25 +251,25 @@ def vvod_info_ch_qant(data: dict, type):
         if data_test(data):
             ch_qant = Change_qantity()
             ch_qant.time_oper = datetime.today()
+            ch_type_rec = Change_types.objects.filter(id=type).get()
+            ch_qant.change_type_id = ch_type_rec
             try:
                 if type < 5:
-                    if not Positions.objects.filter(id=data["position_id"]).exists():
+                    pos_all = Positions.objects.all()
+                    if not pos_all.filter(id=data["position_id"]).exists():
                         logging.info("Позиция %s не найдена ", data["position_id"])
                         return HttpResponse("Bad Request: Positions.id is not defined")
                     else:
-                        ch_qant.change_type_id = Change_types.objects.filter(id=type).get()
-                        ch_qant.position_id = Positions.objects.filter(id=data["position_id"]).get()
+                        ch_qant.position_id = pos_all.filter(id=data["position_id"]).get()
                         if "quantity" in data:
                             ch_qant.quantity = data["quantity"]
                         else:
                             ch_qant.quantity = 0.0
-
-                        pos = Positions.objects.filter(id=data["position_id"]).get()
-                        pos.quantity += (-1) ** Change_types.objects.filter(id=type).get().znak * data["quantity"]
+                        pos = pos_all.filter(id=data["position_id"]).get()
+                        pos.quantity += (-1) ** ch_type_rec.znak * data["quantity"]
                         pos.save()
                         logging.info("Сохранено в базе: %s, %s, %s", pos.id, pos.name, pos.quantity)
                 else:
-                    ch_qant.change_type_id = Change_types.objects.filter(id=type).get()
                     logging.info("записана операция с нулевым изменением количества, тип %s, %s", type, Change_types.objects.filter(id=type).get().name)
                 # if "person_id_mol" not in data:
                 #     ch_qant.person_id_mol = Persons.objects.filter(id=random.randint(1, 5)).get() # доделать генерацию

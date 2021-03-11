@@ -16,7 +16,6 @@ def change_info_pos(data: dict = old_pos):
     try:
         if data_test(data):
             if Positions.objects.filter(id=data["id"]).exists():
-        #        position = Positions.objects.filter(id=data["id"])
                 position = Positions(**data)
                 position.save()
                 print(f"Сохранено в базе: {position.id}, {position.name}, {position.quantity}")
