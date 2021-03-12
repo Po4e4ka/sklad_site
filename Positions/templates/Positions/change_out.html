@@ -6,8 +6,10 @@
 </head>
 <body>
     <form>
+
     <p>
-        <label for='mol'>Ответственный</label>
+        <label for='mol'>Ответственный</label><br>
+
         <select id='mol' name='mol'>
             <option value="" hidden>Выберите ответственного</option>
             {% for person in persons %}
@@ -15,6 +17,34 @@
             {% endfor %}
         </select>
     </p>
+
+    <p>
+    <label>Принял</label><br>
+        <select id='arb' name='arb'>
+            <option value="" hidden>Выберите приемщика</option>
+            {% for person in arb %}
+                <option value="{{ person.id }}">{{ person.name }}</option>
+            {% endfor %}
+        </select>
+    </p>
+
+        <p>
+        <label>Объект</label><br>
+        <select id='obj' name='obj'>
+            <option value="" hidden>Выберите объект</option>
+            {% for obj in objects %}
+                <option value="{{ obj.id }}">{{ obj.name }}</option>
+            {% endfor %}
+        </select>
+        </p>
+
+    <p>
+        <table id="node" border="1">
+              <tr><td>ID</td><td>Name</td></tr>
+        </table>
+    </p>
     </form>
+
 </body>
+
 </html>

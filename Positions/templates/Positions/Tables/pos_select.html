@@ -44,8 +44,8 @@
 						</thead>
 						<tbody>
                         {% for pos in positions%}
-
-								<tr onclick="document.location='position{{ pos.id }}'">
+                            
+								<tr id= "pos">
 									<td class="column1">{{ pos.id }}</td>
 									<td class="column2">{{ pos.code|stringformat:"06d" }}</td>
 									<td class="column3">{{ pos.name }}</td>
@@ -57,4 +57,10 @@
 						</tbody>
 					</table>
 				</div>
+    <script>
+        document.getElementById("pos").onclick = function() {
+            
+        }
+    </script>
 {% endblock %}
+

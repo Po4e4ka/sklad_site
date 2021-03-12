@@ -2,7 +2,7 @@ from django.forms import model_to_dict
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
-from .models import Positions, Persons, Change_qantity
+from .models import Positions, Persons, Change_qantity, Objects
 
 
 # Начальная страница
@@ -64,9 +64,18 @@ class ChangeListView(View):
         pass
 # Изменение
 class ChangeView(View):
-    def get(self):
-        pass
-    def post(self):
+    def get(self, request):
+        persons = Persons.objects.filter(level_id="3")
+        arb = Persons.objects.all()
+        objects = Objects.objects.all()
+
+        return render(request, "Positions/change_out.html",
+                      context={
+                          "persons":persons,
+                          "arb":arb,
+                          "objects":objects,
+                      })
+    def post(self, request):
         pass
 
 

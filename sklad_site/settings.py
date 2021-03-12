@@ -116,6 +116,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+POS_SESSION_ID = "pos_cart"
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
