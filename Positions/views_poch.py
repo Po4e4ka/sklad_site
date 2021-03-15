@@ -35,7 +35,7 @@ def index(request):
      # positions = Positions._meta.get_fields()
     # vvod_info_ch_qant(qant_test, 1)
     # change_info_ch_type(change_test_new)
-    # find_pos('камера')
+    find_pos('aaa')
     # find_change(datetime.date(2021,3,11), False, 1)
 
     return HttpResponse('OK')
