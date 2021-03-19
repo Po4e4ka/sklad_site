@@ -69,7 +69,6 @@ nomenklatura_test = [{"name": "запасные части"},
 def vvod_info_group(data: dict):
     try:
         if data_test(data):
-
             if "name" not in data:
                 logging.info("Group.name is absent")
                 return HttpResponse("Bad Request: group.name is absent")
