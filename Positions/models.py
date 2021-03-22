@@ -22,6 +22,8 @@ class Levels(models.Model):
 class Persons (models.Model):
     id = models.AutoField(primary_key=True)  # ИД авторизованного пользователя
     name = models.TextField(null=True) # Фамилия И.О.
+    phone = models.IntegerField(null=True) # Номер телефона
+    office_position = models.TextField(null=True) # Должность
     level_id = models.ForeignKey(Levels,on_delete=models.SET_NULL, null=True) # Уровень доступа
 
 
