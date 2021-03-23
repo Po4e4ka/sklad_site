@@ -4,6 +4,8 @@ from django.shortcuts import render
 from django.views import View
 from .models import Positions, Persons, Change_qantity, Objects
 
+import re
+
 
 # Начальная страница
 def index(request):
@@ -34,7 +36,25 @@ class PositionLisView(View):
             positions = Positions.objects.exclude(quantity=0).exclude(quantity=None)
         return render(request, "Positions/Tables/positions_view_table.html", context={"positions":positions, "check":check})
     def post(self, request):
-        pass
+        check = request.GET.get("null") == '1'
+        if check:
+            positions = Positions.objects.all()
+        else:
+            positions = Positions.objects.exclude(quantity=0).exclude(quantity=None)
+        filter_pos = []
+
+        _dict = dict(request.POST.items())
+        print(_dict["reg_search"])
+        for pos in positions:
+            # print(pos.name)
+            print(re.search(_dict["reg_search"], pos.name))
+            if re.search(_dict["reg_search"], pos.name) is not None:
+                filter_pos.append(pos)
+        print(filter_pos)
+        return render(request, "Positions/Tables/positions_view_table.html",
+                      context={"positions": filter_pos, "check": check})
+
+
 # Позиция
 class PositionView(View):
     def get(self, request, pos_id):
@@ -77,5 +97,10 @@ class ChangeView(View):
                       })
     def post(self, request):
         pass
+
+class ObectsView(View):
+    def get(self, request):
+        _objects = Objects.objects.all()
+        return render(request, "Positions/Tables/objects_table.html", context={"objects":_objects})
 
 
