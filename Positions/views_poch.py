@@ -14,6 +14,7 @@ from .func_for_views import vvod_info_ch_type, change_test, excel_to_dict, vvod_
 from .models import Positions, Groups
 import sqlite3
 
+new_pos = {'name': 'БАТАРЕЙКИ LR03 MAX ENERGIZER AA', 'code': '072899', 'quantity': 32, 'ediz': 'шт'}
 
 
 def index(request):
@@ -29,7 +30,8 @@ def index(request):
     #     vvod_info_level(i)
     # for i in obj_test:
     #     vvod_info_obj(i)
-    # vvod_info_pos(qant_test, 1)
+
+    vvod_info_pos(new_pos)
 
     # change_info_pos(try_1)
      # positions = Positions._meta.get_fields()

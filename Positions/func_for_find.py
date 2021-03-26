@@ -3,7 +3,7 @@ from .models import Positions, Change_qantity
 from datetime import datetime, timedelta
 import logging
 
-# filemode="w"
+
 logging.basicConfig(filename="sample.log", format='[%(asctime)s] [%(levelname)s] => %(message)s', level=logging.INFO)
 
 

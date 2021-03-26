@@ -48,7 +48,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'Positions.middlewares.Middleware',
+    'Positions.middlewares.MiddlewareDict',
+    'Positions.middlewares.MiddlewareDate',
 ]
 
 ROOT_URLCONF = 'sklad_site.urls'
