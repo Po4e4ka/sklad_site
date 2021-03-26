@@ -28,6 +28,6 @@ class MiddlewareDate:
         return rs
 
     def process_exception(self, reqest, exception):
-        if isinstance(exception, DataTypeError):
+        if isinstance(exception, PeriodTypeError):
             # print("response from Middlewares")
             return JsonResponse({"PeriodTypeError": "object is not datetime"}, status=404)
