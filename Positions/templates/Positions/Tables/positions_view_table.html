@@ -22,9 +22,7 @@
 
 });</script>
 
-   <form method="post">
 
-{% csrf_token %}
     {% if check %}
         <div class="blokk">
     <input type="checkbox" onclick="document.location='{% url 'list' %}?null=0'" checked/>
@@ -44,6 +42,9 @@
 
 </div>
     {% endif %}
+    <form method="post">
+
+{% csrf_token %}
     <div class="blokk"><input type="search" name="reg_search" placeholder="Найти позиции"></div>
     <div class="blokk"><input type="submit" value="Найти" class="button"></div>
 

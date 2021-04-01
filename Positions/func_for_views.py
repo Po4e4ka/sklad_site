@@ -28,12 +28,15 @@ def vvod_info_pos(data: dict):
             return HttpResponse("Bad Request: positions.name is already in base")
         else:
             try:
+                data["mol"] = Persons.objects.get(pk=data["mol"])
                 position = Positions(**data)
                 position.save()
                 print(f"Сохранено в базе: {position.id}, {position.name}, {position.quantity}")
-            except:
+            except Exception as e:
+                print(e)
                 return -1
     else:
+        print("aaaaaaa")
         return HttpResponse("Bad Request: positions.name is absent")
 
 nomenklatura_test =  [{"id": 1, "name": "материалы"},

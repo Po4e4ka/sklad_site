@@ -2,6 +2,8 @@ from django.forms import model_to_dict
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
+
+from .func_for_views import vvod_info_pos
 from .models import Positions, Persons, Change_qantity, Objects
 
 import re
@@ -21,9 +23,20 @@ class NewView(View):
         # реобразование в словарь всех данных из пост
         main_dict = dict(request.POST.items())
         html = "<html><body>Успешно добавлено<br>"
+
+        del main_dict["csrfmiddlewaretoken"]
+        del main_dict["image1"]
+        del main_dict["image2"]
+        main_dict["code"] = int(main_dict["code"])
+        main_dict["quantity"] = int(main_dict["quantity"])
+        main_dict["mol"] = int(main_dict["mol"])
+        print(main_dict)
+        vvod_info_pos(main_dict)
+
         for key, item in main_dict.items():
             html += f"{key}: {item}<br>"
         html += '<input type="button" onclick="history.back();" value="Назад"/></body></html>'
+
         return HttpResponse(html)
 # Таблица позиций
 class PositionLisView(View):
