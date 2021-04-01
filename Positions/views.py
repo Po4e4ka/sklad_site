@@ -8,6 +8,7 @@ from .models import Positions, Persons, Change_qantity, Objects
 
 import re
 
+out_dict = {"objects":[]}
 
 # Начальная страница
 def index(request):
@@ -98,18 +99,35 @@ class ChangeListView(View):
 # Изменение
 class ChangeView(View):
     def get(self, request):
+
+        if request.GET.get("list") is not None:
+            out_dict["objects"].append(Positions.objects.get(pk=request.GET.get("list")))
         persons = Persons.objects.filter(level_id="3")
         arb = Persons.objects.all()
         objects = Objects.objects.all()
+        positions = Positions.objects.exclude(quantity=0).exclude(quantity=None)
 
         return render(request, "Positions/change_out.html",
                       context={
                           "persons":persons,
                           "arb":arb,
                           "objects":objects,
+                          "positions": positions,
+                          "out_dict": out_dict,
+                          "pos": out_dict["objects"]
                       })
     def post(self, request):
-        pass
+        positions = Positions.objects.exclude(quantity=0).exclude(quantity=None)
+        _dict = dict(request.POST.items())
+        out_dict["mol"] = Persons.objects.get(pk=_dict["mol"]) if _dict["mol"] != '' else None
+        out_dict["arb"] = Persons.objects.get(pk=_dict["arb"]) if _dict["arb"] != '' else None
+        out_dict["obj"] = Objects.objects.get(pk=_dict["obj"]) if _dict["obj"] != '' else None
+        print(out_dict)
+        return render(request, "Positions/Tables/pos_select.html", context={"positions":positions})
+
+
+
+
 
 class ObectsView(View):
     def get(self, request):

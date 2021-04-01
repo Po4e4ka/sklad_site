@@ -5,13 +5,17 @@
     <title>Выдача позиции</title>
 </head>
 <body>
-    <form>
-
+    <form method="post">
+    {% csrf_token %}
     <p>
         <label for='mol'>Ответственный</label><br>
 
         <select id='mol' name='mol'>
+        {% if out_dict.mol %}
+            <option value="{{ out_dict.mol.id }}" hidden>{{ out_dict.mol.name }}</option>
+        {% else %}
             <option value="" hidden>Выберите ответственного</option>
+        {% endif %}
             {% for person in persons %}
                 <option value="{{ person.id }}">{{ person.name }}</option>
             {% endfor %}
@@ -21,7 +25,11 @@
     <p>
     <label>Принял</label><br>
         <select id='arb' name='arb'>
+        {% if out_dict.arb %}
+            <option value="{{ out_dict.arb.id }}" hidden>{{ out_dict.arb.name }}</option>
+        {% else %}
             <option value="" hidden>Выберите приемщика</option>
+        {% endif %}
             {% for person in arb %}
                 <option value="{{ person.id }}">{{ person.name }}</option>
             {% endfor %}
@@ -31,18 +39,27 @@
         <p>
         <label>Объект</label><br>
         <select id='obj' name='obj'>
-            <option value="" hidden>Выберите объект</option>
+        {% if out_dict.obj %}
+            <option value="{{ out_dict.obj.id }}" hidden>{{ out_dict.obj.name }}</option>
+            {% else %}
+        <option value="" hidden>Выберите объект</option>{% endif %}
             {% for obj in objects %}
                 <option value="{{ obj.id }}">{{ obj.name }}</option>
             {% endfor %}
         </select>
         </p>
+        <input type="submit" value="Добавить позицию">
 
     <p>
+
         <table id="node" border="1">
-              <tr><td>ID</td><td>Name</td></tr>
+              <tr><td>ID</td><td>Name</td><td>quantity</td></tr>
+            {% for i in pos %}
+                 <tr><td>{{ i.id }}</td><td>{{ i.name }}</td><td><input id=""></td></tr>
+            {% endfor %}
         </table>
     </p>
+    <input type="submit" value="отправить на выдачу">
     </form>
 
 </body>
