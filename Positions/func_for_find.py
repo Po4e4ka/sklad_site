@@ -7,7 +7,7 @@ import logging
 logging.basicConfig(filename="sample.log", format='[%(asctime)s] [%(levelname)s] => %(message)s', level=logging.INFO)
 
 
-def find_pos(data: str = False, code_pos: int = False):
+def find_pos(data: str = False, code_pos: str = False):
     pos_find = Positions.objects.all()
     try:
         if data and not code_pos:
@@ -18,6 +18,8 @@ def find_pos(data: str = False, code_pos: int = False):
             else:
                 logging.info("По запросу %s позиций не найдено", str)
                 return HttpResponse("Positions is absent")
+        if code_pos:
+            code_pos = int(code_pos)
         if not data and code_pos:
             pos_find_code = pos_find.filter(code__icontains=code_pos)
             if pos_find_code:
@@ -39,7 +41,7 @@ def find_pos(data: str = False, code_pos: int = False):
         return HttpResponse("Bad Request: Parameters is not defined")
 
 
-def find_change(data1: datetime = False, data2: datetime = False, type: int = False):
+def find_change(data1: datetime = False, data2: datetime = False, type: str = False):
     change_find = Change_qantity.objects.all()
     try:
         if data1 and not data2 and not type:
@@ -67,6 +69,7 @@ def find_change(data1: datetime = False, data2: datetime = False, type: int = Fa
                 logging.info("По запросу %s операций не найдено", data2)
                 return HttpResponse("Change_qantity under this date is absent")
         if type:
+            type = int(type)
             pos_find_type = change_find.filter(change_type_id=type)
             if pos_find_type:
                 if data1 and not data2:
