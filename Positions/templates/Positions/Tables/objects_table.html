@@ -1,0 +1,25 @@
+{% extends "Positions/Tables/base_table.html" %}
+{% block content %}
+            <h1>Таблица объектов</h1><br>
+				<div class="table100">
+					<table>
+						<thead>
+							<tr  class="table100-head">
+								<th class="column1">ID</th>
+								<th class="column3">Обект</th>
+								<th class="column6">Адрес</th>
+							</tr>
+						</thead>
+						<tbody>
+                        {% for obj in objects%}
+								<tr>
+									<td class="column1">{{ obj.id }}</td>
+									<td class="column3">{{ obj.name }}</td>
+                                    <td class="column3">test</td>
+{#									<td class="column6">{{ obj.adr}}</td>#}
+								</tr>
+                        {% endfor %}
+						</tbody>
+					</table>
+				</div>
+{% endblock %}

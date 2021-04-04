@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ТУПиМ</title>
+    <title>Главное меню</title>
     <link href='https://fonts.googleapis.com/css?family=Montserrat+Alternates:700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css'>
@@ -16,6 +16,8 @@
     <ul>
         <li><a href='{% url "list" %}'>Таблица товаров</a></li>
         <li><a href="{% url 'new' %}">Добавить новую позицию</a></li>
+        <li><a href="{% url 'obj' %}">Объекты</a></li>
+        <li><a href="{% url 'out' %}">Приём / Выдача</a></li>
         <li><a href="{% url 'persons' %}">Работники</a></li>
         <li><a href="{% url 'changes' %}">Таблица изменений</a></li>
     </ul>

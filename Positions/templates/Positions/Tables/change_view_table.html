@@ -1,11 +1,10 @@
 {% extends "Positions/Tables/base_table.html" %}
 {% block content %}
-            <h1 align="center">Таблица изменений</h1>
+            <h1 align="center">Таблица изменений</h1><br>
 				<div class="table100">
 					<table>
 						<thead>
 							<tr  class="table100-head">
-{#                                TODO Найти способ изменять тип сортировки#}
 								<th class="column1">ID</th>
 								<th class="column3">Дата и время</th>
                                 <th class="column6">Позиция</th>
@@ -21,7 +20,7 @@
                         {% for change in changes%}
 								<tr onclick="document.location='change{{ pos.id }}'">
 									<td class="column1">{{ change.id }}</td>
-									<td class="column3">{{ change.time_oper|stringformat:"06d" }}</td>
+									<td class="column3">{{ change.time_oper }}</td>
 									<td class="column6">{{ change.position_id.name }}</td>
 									<td class="column5">{{ change.quantity }}</td>
 									<td class="column4">{{ change.change_type_id.name }}</td>

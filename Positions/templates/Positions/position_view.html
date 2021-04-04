@@ -2,7 +2,6 @@
 {% load static %}
 <html lang="en">
 <head>
-{#    TODO сделать название позиции#}
 	<title>Позиция №{{ position.id }}</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -71,10 +70,14 @@
 					<button class="contact100-form-btn">
 						Редактировать
 					</button>
+
+                    <button class="contact100-form-btn-red">
+						Удалить
+					</button>
 				</div>
 			</form>
 
-			<div class="contact100-more flex-col-c-m" style="background-image: url('{% static "Positions/position_view/images/test.jpg"%}');">
+			<div class="contact100-more flex-col-c-m" style="background-image: url('{% static "Positions/position_view/images/1.jpg"%}');">
 				<div class="flex-w size1 p-b-47">
 					<div class="txt1 p-r-25">
 					</div>

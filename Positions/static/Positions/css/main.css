@@ -117,6 +117,29 @@ iframe {
   margin: 0 auto;
 }
 
+.blokk {
+  display: inline-block;
+}
+
+.blokk-d1 {background: #A3D0C3;}
+.blokk-d1 input {
+  height: 42px;
+  padding-left: 10px;
+  border-radius: 5px;
+  outline: none;
+  color: #9E9C9C;
+}
+.blokk-d1 button {
+  position: absolute;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+.blokk-d1 button:before {
+  content: "\f002";
+  font-size: 16px;
+}
+
 .container-table100 {
   width: 100%;
   min-height: 100vh;
@@ -310,5 +333,29 @@ tbody tr:hover {
     padding-left: 15px;
     padding-right: 15px;
   }
+}
+
+th.sorted[data-order="1"],
+th.sorted[data-order="-1"] {
+    position: relative;
+}
+
+th.sorted[data-order="1"]::after,
+th.sorted[data-order="-1"]::after {
+    right: 8px;
+    position: absolute;
+}
+
+th.sorted[data-order="-1"]::after {
+	content: "▼"
+}
+
+th.sorted[data-order="1"]::after {
+	content: "▲"
+}
+
+input[type=checkbox],
+input[type=radio]{
+  size: A3;
 }
 
