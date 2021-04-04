@@ -1,0 +1,7 @@
+[2021-03-23 19:55:40,355] [ERROR] => Positions is not saved Cannot assign "'2'": "Positions.mol" must be a "Persons" instance.
+[2021-03-23 19:56:39,022] [ERROR] => Positions is not saved Cannot assign "2": "Positions.mol" must be a "Persons" instance.
+[2021-03-23 19:59:45,368] [INFO] => Сохранено в базе 451, БАТАРЕЙКИ LR03 MAX ENERGIZER AA, 32
+[2021-03-23 19:59:45,370] [INFO] => записана операция с нулевым изменением количества, тип 5, vvod_info_pos
+[2021-03-27 00:00:39,749] [INFO] => Есть в базе БАТАРЕЙКИ LR03 MAX ENERGIZER AA
+[2021-03-27 00:00:39,831] [WARNING] => Not Found: /favicon.ico
+[2021-03-27 00:10:23,476] [INFO] => Есть в базе БАТАРЕЙКИ LR03 MAX ENERGIZER AA

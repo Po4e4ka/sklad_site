@@ -22,6 +22,8 @@ class Levels(models.Model):
 class Persons (models.Model):
     id = models.AutoField(primary_key=True)  # ИД авторизованного пользователя
     name = models.TextField(null=True) # Фамилия И.О.
+    phone = models.IntegerField(null=True) # Номер телефона
+    office_position = models.TextField(null=True) # Должность
     level_id = models.ForeignKey(Levels,on_delete=models.SET_NULL, null=True) # Уровень доступа
 
 
@@ -62,6 +64,6 @@ class Change_qantity (models.Model):
     object_id = models.ForeignKey(Objects, on_delete=models.SET_NULL, null=True)  # ИД объекта
 
 
-class Dokuments (models.Model):
+class Documents (models.Model):
     id = models.AutoField(primary_key=True)  # ИД объекта
     file_name = models.FileField(null=True)  # Наименование объекта
