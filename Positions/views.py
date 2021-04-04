@@ -8,7 +8,7 @@ from .models import Positions, Persons, Change_qantity, Objects
 
 import re
 
-out_dict = {"objects":[]}
+out_dict = {"positions":[]}
 
 # Начальная страница
 def index(request):
@@ -101,11 +101,14 @@ class ChangeView(View):
     def get(self, request):
 
         if request.GET.get("list") is not None:
-            out_dict["objects"].append(Positions.objects.get(pk=request.GET.get("list")))
+            out_dict["positions"].append(Positions.objects.get(pk=request.GET.get("list")))
+
         persons = Persons.objects.filter(level_id="3")
         arb = Persons.objects.all()
         objects = Objects.objects.all()
         positions = Positions.objects.exclude(quantity=0).exclude(quantity=None)
+        if request.GET.get("reg_search") is not None:
+            return render(request, "Positions/Tables/pos_select.html", context={"positions":positions})
 
         return render(request, "Positions/change_out.html",
                       context={
@@ -114,7 +117,7 @@ class ChangeView(View):
                           "objects":objects,
                           "positions": positions,
                           "out_dict": out_dict,
-                          "pos": out_dict["objects"]
+                          "pos": out_dict["positions"]
                       })
     def post(self, request):
         positions = Positions.objects.exclude(quantity=0).exclude(quantity=None)
@@ -122,7 +125,6 @@ class ChangeView(View):
         out_dict["mol"] = Persons.objects.get(pk=_dict["mol"]) if _dict["mol"] != '' else None
         out_dict["arb"] = Persons.objects.get(pk=_dict["arb"]) if _dict["arb"] != '' else None
         out_dict["obj"] = Objects.objects.get(pk=_dict["obj"]) if _dict["obj"] != '' else None
-        print(out_dict)
         return render(request, "Positions/Tables/pos_select.html", context={"positions":positions})
 
 
