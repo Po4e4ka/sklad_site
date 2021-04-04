@@ -24,6 +24,7 @@ class Persons (models.Model):
     name = models.TextField(null=True) # Фамилия И.О.
     level_id = models.ForeignKey(Levels,on_delete=models.SET_NULL, null=True) # Уровень доступа
 
+
 class Positions (models.Model):
     # функция ввода vvod_info_pos проверяет отсутствие дублирования по полю "name"
     id = models.AutoField(primary_key=True) # ИД комлектующего
@@ -32,8 +33,8 @@ class Positions (models.Model):
     groups_id = models.ForeignKey(Groups, on_delete=models.SET_NULL, null=True) # Номенклатурная группа
     quantity = models.FloatField(null=True) # Количество
     ediz = models.TextField(null=True) # Единица измерения
-    photo1 = models.ImageField(null=True) # Фото 1
-    photo2 = models.ImageField(null=True) # Фото 2 (в упаковке)
+    photo1 = models.ImageField(null=True, blank=True, upload_to="images/") # Фото 1
+    photo2 = models.ImageField(null=True, blank=True, upload_to="images/") # Фото 2 (в упаковке)
     mol = models.ForeignKey(Persons, on_delete=models.SET_NULL, null=True) # Материально-ответственное лицо
     xyz_id = models.ForeignKey(Xyz, on_delete=models.SET_NULL, null=True) # Местонахождение
 
@@ -59,3 +60,8 @@ class Change_qantity (models.Model):
     person_id_mol = models.ForeignKey(Persons, on_delete=models.SET_NULL, null=True, related_name="mol") # ИД МОЛ
     person_id_contr = models.ForeignKey(Persons, on_delete=models.SET_NULL, null=True, related_name='contr')  # ИД подотчетного лица
     object_id = models.ForeignKey(Objects, on_delete=models.SET_NULL, null=True)  # ИД объекта
+
+
+class Dokuments (models.Model):
+    id = models.AutoField(primary_key=True)  # ИД объекта
+    file_name = models.FileField(null=True)  # Наименование объекта
