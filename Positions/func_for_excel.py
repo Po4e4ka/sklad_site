@@ -4,6 +4,9 @@ import openpyxl
 import datetime
 import random
 
+import os
+import subprocess
+
 from win32com import client
 
 
@@ -33,7 +36,7 @@ class ExcelData:
         )
 
 
-path = "prin-template.xlsx"
+path = os.getcwd() + "\\Positions\\prin-template.xlsx"
 
 testData = {
     "dataTime": datetime.date.today(),
@@ -60,11 +63,12 @@ data = ExcelData.dict_to_class(testData)
 
 
 def write_to_excel(data: ExcelData):
+    print(path)
     wb = openpyxl.load_workbook(path)
     xl = wb.active
 
-    datime = xl.cell(3, 15)
-    ID = xl.cell(3, 8)
+    datime = xl.cell(3, 8)
+    ID = xl.cell(3, 5)
     mol = xl.cell(6, 2)
     prin = xl.cell(9, 2)
     obj = xl.cell(12, 2)
@@ -79,12 +83,11 @@ def write_to_excel(data: ExcelData):
     # first pos
 
     for i, k in enumerate(data.positions):
-        first += i
-        posID = xl.cell(first, 2)
-        posName = xl.cell(first, 4)
-        posCode = xl.cell(first, 5)
-        posEdiz = xl.cell(first, 7)
-        posQuant = xl.cell(first, 12)
+        posID = xl.cell(first + i, 2)
+        posName = xl.cell(first + i, 4)
+        posCode = xl.cell(first + i, 5)
+        posEdiz = xl.cell(first + i, 7)
+        posQuant = xl.cell(first + i, 12)
 
         posID.value = i + 1
         posName.value = k["name"]
@@ -113,6 +116,18 @@ def excel_to_pdf():
     books.Close()
 
 
+def print_pdf():
+    args = '"C:\\\\Program Files\\\\gs\\\\gs9.54.0\\\\bin\\\\gswin64c" ' \
+           '-sDEVICE=mswinpr2 ' \
+           '-dBATCH ' \
+           '-dNOPAUSE ' \
+           '-dFitPage ' \
+           '-sOutputFile="%printer%myPrinterName" '
+    ghostscript = args + os.path.join(os.getcwd(), '1.pdf').replace('\\', '\\\\')
+    subprocess.call(ghostscript, shell=False)
+
+
 if __name__ == "__main__":
+    path = "prin-template.xlsx"
     write_to_excel(data)
     excel_to_pdf()
