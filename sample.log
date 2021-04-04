@@ -5,3 +5,74 @@
 [2021-03-27 00:00:39,749] [INFO] => Есть в базе БАТАРЕЙКИ LR03 MAX ENERGIZER AA
 [2021-03-27 00:00:39,831] [WARNING] => Not Found: /favicon.ico
 [2021-03-27 00:10:23,476] [INFO] => Есть в базе БАТАРЕЙКИ LR03 MAX ENERGIZER AA
+[2021-04-04 13:55:05,696] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
+[2021-04-04 14:00:57,453] [INFO] => Выбрано 5 позиций
+[2021-04-04 14:01:33,208] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
+[2021-04-04 14:01:37,830] [INFO] => По запросу <class 'str'> позиций не найдено
+[2021-04-04 14:02:06,736] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
+[2021-04-04 14:04:50,652] [INFO] => По запросу <class 'str'> позиций не найдено
+[2021-04-04 14:07:09,075] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
+[2021-04-04 14:07:21,038] [INFO] => По запросу <class 'str'> позиций не найдено
+[2021-04-04 14:08:02,151] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
+[2021-04-04 14:08:16,077] [INFO] => Выбрано 21 позиций
+[2021-04-04 14:08:31,547] [INFO] => Выбрано 2 позиций
+[2021-04-04 14:08:38,196] [INFO] => Выбрано 5 позиций
+[2021-04-04 14:11:00,632] [INFO] => По запросу <class 'str'> позиций не найдено
+[2021-04-04 14:11:00,672] [ERROR] => Internal Server Error: /list/
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py", line 64, in post
+    positions = positions.exce(quantity=0).exclude(quantity=None)
+AttributeError: 'HttpResponse' object has no attribute 'exce'
+[2021-04-04 14:11:15,183] [INFO] => По запросу <class 'str'> позиций не найдено
+[2021-04-04 14:11:15,214] [ERROR] => Internal Server Error: /list/
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py", line 64, in post
+    positions = positions.exce(quantity=0).exclude(quantity=None)
+AttributeError: 'HttpResponse' object has no attribute 'exce'
+[2021-04-04 14:11:24,499] [INFO] => Выбрано 5 позиций
+[2021-04-04 14:11:24,531] [ERROR] => Internal Server Error: /list/
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py", line 64, in post
+    positions = positions.exce(quantity=0).exclude(quantity=None)
+AttributeError: 'QuerySet' object has no attribute 'exce'
+[2021-04-04 14:11:50,423] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
+[2021-04-04 14:11:54,551] [INFO] => Выбрано 5 позиций
+[2021-04-04 14:11:58,768] [INFO] => По запросу <class 'str'> позиций не найдено
+[2021-04-04 14:11:58,819] [ERROR] => Internal Server Error: /list/
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py", line 64, in post
+    positions = positions.exclude(quantity=0).exclude(quantity=None)
+AttributeError: 'HttpResponse' object has no attribute 'exclude'
+[2021-04-04 14:12:42,129] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.

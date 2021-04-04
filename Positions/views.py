@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.views import View
 
 from .func_for_views import vvod_info_pos
+from .func_for_find import find_pos
 from .models import Positions, Persons, Change_qantity, Objects
 
 import re
@@ -50,23 +51,18 @@ class PositionLisView(View):
             positions = Positions.objects.exclude(quantity=0).exclude(quantity=None)
         return render(request, "Positions/Tables/positions_view_table.html", context={"positions":positions, "check":check})
     def post(self, request):
-        check = request.GET.get("null") == '1'
-        if check:
-            positions = Positions.objects.all()
-        else:
-            positions = Positions.objects.exclude(quantity=0).exclude(quantity=None)
-        filter_pos = []
 
         _dict = dict(request.POST.items())
         print(_dict["reg_search"])
-        for pos in positions:
-            # print(pos.name)
-            print(re.search(_dict["reg_search"], pos.name))
-            if re.search(_dict["reg_search"], pos.name) is not None:
-                filter_pos.append(pos)
-        print(filter_pos)
+        if _dict["reg_search"] is not None:
+            positions = find_pos(_dict["reg_search"])
+        else:
+            positions = Positions.objects.all()
+        check = request.GET.get("null") == '1'
+        if not check:
+            positions = positions.exclude(quantity=0).exclude(quantity=None)
         return render(request, "Positions/Tables/positions_view_table.html",
-                      context={"positions": filter_pos, "check": check})
+                      context={"positions": positions, "check": check})
 
 
 # Позиция
