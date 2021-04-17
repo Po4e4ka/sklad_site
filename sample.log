@@ -531,3 +531,80 @@ KeyError: 'mol'
 [2021-04-04 21:30:03,766] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
 [2021-04-04 21:32:14,395] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
 [2021-04-04 21:32:53,573] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
+[2021-04-05 20:35:31,584] [WARNING] => Not Found: /favicon.ico
+[2021-04-06 16:24:25,632] [WARNING] => Not Found: /favicon.ico
+[2021-04-06 16:24:41,094] [WARNING] => Not Found: /favicon.ico
+[2021-04-06 22:53:36,526] [WARNING] => Not Found: /favicon.ico
+[2021-04-07 11:38:09,925] [WARNING] => Not Found: /favicon.ico
+[2021-04-07 11:39:30,597] [INFO] => Выбрано 1 позиций
+[2021-04-07 11:39:47,437] [ERROR] => Internal Server Error: /out/
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py", line 162, in post
+    "mol": out_dict["mol"].name,
+AttributeError: 'NoneType' object has no attribute 'name'
+[2021-04-07 11:40:03,466] [ERROR] => Internal Server Error: /out/
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py", line 162, in post
+    "mol": out_dict["mol"].name,
+AttributeError: 'NoneType' object has no attribute 'name'
+[2021-04-07 11:40:23,284] [WARNING] => Not Found: /favicon.ico
+[2021-04-07 12:11:34,506] [ERROR] => Internal Server Error: /out/
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py", line 162, in post
+    "mol": out_dict["mol"].name,
+AttributeError: 'NoneType' object has no attribute 'name'
+[2021-04-07 12:12:15,662] [INFO] => Выбрано 1 позиций
+[2021-04-07 12:12:26,276] [INFO] => Выбрано 4 позиций
+[2021-04-08 00:43:27,809] [WARNING] => Not Found: /favicon.ico
+[2021-04-08 01:08:01,009] [WARNING] => Not Found: /favicon.ico
+[2021-04-08 01:43:22,784] [ERROR] => Internal Server Error: /out/
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py", line 162, in post
+    "mol": out_dict["mol"].name,
+AttributeError: 'NoneType' object has no attribute 'name'
+[2021-04-08 01:43:34,166] [ERROR] => Internal Server Error: /out/
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py", line 162, in post
+    "mol": out_dict["mol"].name,
+AttributeError: 'NoneType' object has no attribute 'name'
+[2021-04-17 21:27:13,522] [WARNING] => Not Found: /favicon.ico

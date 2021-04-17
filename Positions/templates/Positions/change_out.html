@@ -1,13 +1,14 @@
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Выдача позиции</title>
-</head>
+{% extends "Positions/Tables/base_table.html" %}
+{% block content %}
+
+
 <body>
     <form method="post">
     {% csrf_token %}
-    <p>
-        <label for='mol'>Ответственный</label><br>
+
+            <h1>Новая выдача</h1><br>
+
+        <label for='mol'>Ответственный</label>
 
         <select id='mol' name='mol'>
         {% if out_dict.mol %}
@@ -19,9 +20,8 @@
                 <option value="{{ person.id }}">{{ person.name }}</option>
             {% endfor %}
         </select>
-    </p>
 
-    <p>
+
     <label>Принял</label><br>
         <select id='arb' name='arb'>
         {% if out_dict.arb %}
@@ -33,9 +33,7 @@
                 <option value="{{ person.id }}">{{ person.name }}</option>
             {% endfor %}
         </select>
-    </p>
 
-        <p>
         <label>Объект</label><br>
         <select id='obj' name='obj'>
         {% if out_dict.obj %}
@@ -46,22 +44,21 @@
                 <option value="{{ obj.id }}">{{ obj.name }}</option>
             {% endfor %}
         </select>
-        </p>
-        <button type="submit">Добавить позицию</button>
-
-    <p>
-
-        <table id="node" border="1">
-              <tr><td>ID</td><td>Наименование</td><td>Остаток на складе</td><td>На выдачу</td></tr>
+    <br><br>
+       <div class="blokk"> <input type="submit" value="Добавить позицию"></div><br>
+    <br>
+<div class="table100">
+        <table id="node" >
+        <thead>
+              <tr class="table100-head"><th class="column_c_1">ID</th><th class="column_c_2">Наименование</th><th class="column_c_3">Остаток на складе</th><th class="column_c_4">На выдачу</th></tr>
+            </thead>
             {% for i in pos %}
-                 <tr><td>{{ i.id }}</td><td>{{ i.name }}</td><td>{{ i.quantity }}</td><td>
+                 <tr><td>{{ i.id }}</td><td >{{ i.name }}</td><td >{{ i.quantity }}</td><td>
                      <input name="quantity{{ i.id }}"></td></tr>
             {% endfor %}
         </table>
-    </p>
-        <button name="otpr" type="submit">отправить на выдачу</button>
+</div>
+        <input name="otpr" value="отправить на выдачу" type="submit">
     </form>
 
-</body>
-
-</html>
+{% endblock %}

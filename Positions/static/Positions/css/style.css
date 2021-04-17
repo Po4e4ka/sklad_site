@@ -282,15 +282,20 @@ button:focus { outline:0; }
     margin-bottom:2px;
 }
 
+
+element.style {
+}
 label {
-	float: left;
-  width: 100%;
-	top: 0px;
-	color: #032942;
-	font-size: 13px;
-	font-weight: 700;
-	text-align: left;
-	line-height: 1.5;
+    float: left;
+    width: 50%;
+    padding-left: 4px;
+    /* top: 100; */
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: left;
+    line-height: 1.5;
+    background-color: #3b868e;
 }
 
 label.checkbox {
@@ -301,25 +306,24 @@ label.checkbox {
 
 
 select {
-	float: left;
-  position: relative;
-  overflow: hidden;
-  display: block;
-  margin: auto;
-  width: 100%;
-  height: 35px;
-  top: 0px;
-  border-bottom: 0px;
-  border-top: 0px;
-  border-left: 0px;
-  border-right: 0px;
-  background: #f5f5f5;
-	color: #315065;
-	font-size: 13px;
-	font-weight: 700;
-	text-align: left;
-	line-height: 1.5;
-  box-shadow: 0px 1em 2em -1.5em rgba(0, 0, 0, .5);
+    float: left;
+    position: relative;
+    overflow: hidden;
+    display: block;
+    margin: auto;
+    width: 50%;
+    height: 30;
+    border-bottom: 0;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    background: #f5f5f5;
+    color: #315065;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: left;
+    line-height: 1.5;
+    box-shadow: 0px 1em 2em -1.5em rgb(0 0 0 / 50%);
 }
 
 input[type=text],

@@ -15,7 +15,7 @@
 [ RESTYLE TAG ]*/
 * {
 	margin: 0px; 
-	padding: 0px; 
+	padding: 0px;
 	box-sizing: border-box;
 }
 
@@ -68,7 +68,7 @@ ul, li {
 input {
   display: block;
 	outline: none;
-	border: none !important;
+  height: 20px;
 }
 
 textarea {
@@ -187,7 +187,7 @@ table tbody tr:last-child {
   border: 0;
 }
 table td, table th {
-  text-align: left;
+  text-align: center;
 }
 table td.l, table th.l {
   text-align: right;
@@ -204,7 +204,7 @@ table td.r, table th.r {
   font-family: OpenSans-Regular;
   font-size: 18px;
   color: #fff;
-  line-height: 1.2;
+  line-height: 0.9;
   font-weight: unset;
 }
 
@@ -216,7 +216,7 @@ tbody tr {
   font-family: OpenSans-Regular;
   font-size: 15px;
   color: #808080;
-  line-height: 1.2;
+  line-height: 1;
   font-weight: unset;
 }
 
@@ -225,6 +225,10 @@ tbody tr:hover {
   background-color: #f5f5f5;
   cursor: pointer;
 
+}
+
+tbody td{
+  padding: 1px;
 }
 
 .column1 {
@@ -256,6 +260,25 @@ tbody tr:hover {
   padding-right: 62px;
 }
 
+/*.column_c_1{*/
+/*  width: 26px;*/
+/*  text-align: center;*/
+/*}*/
+/*.column_c_2{*/
+/*  width: 26px;*/
+/*  text-align: right;*/
+/*}*/
+/*.column_c_3{*/
+/*  width: 20px;*/
+/*  text-align: right;*/
+/*  padding-right: 62px;*/
+/*}*/
+/*.column_c_4{*/
+/*  width: 260px;*/
+/*  text-align: center;*/
+/*  padding-right: 62px;*/
+/*}*/
+
 
 @media screen and (max-width: 992px) {
   table {
@@ -269,7 +292,7 @@ tbody tr:hover {
   }
   table tbody tr {
     height: auto;
-    padding: 37px 0;
+    padding: 20px 0;
   }
   table tbody tr td {
     padding-left: 40% !important;
@@ -307,7 +330,9 @@ tbody tr:hover {
   table tbody tr td:nth-child(6):before {
     content: "МОЛ";
   }
-
+  .column1,
+  .column2,
+  .column3,
   .column4,
   .column5,
   .column6 {
