@@ -608,3 +608,9 @@ Traceback (most recent call last):
     "mol": out_dict["mol"].name,
 AttributeError: 'NoneType' object has no attribute 'name'
 [2021-04-17 21:27:13,522] [WARNING] => Not Found: /favicon.ico
+[2021-04-17 21:41:51,660] [INFO] => Выбрано 1 позиций
+[2021-04-17 21:41:57,118] [INFO] => Выбрано 14 позиций
+[2021-04-18 11:25:20,482] [WARNING] => Not Found: /persons/position1
+[2021-04-18 11:25:50,625] [WARNING] => Not Found: /persons/person2
+[2021-04-18 11:40:33,550] [WARNING] => Not Found: /favicon.ico
+[2021-04-18 12:33:15,549] [WARNING] => Not Found: /favicon.ico

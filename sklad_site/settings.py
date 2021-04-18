@@ -43,7 +43,10 @@ INSTALLED_APPS = [
     'pos_cart'
 ]
 
+BASICAUTH_USERS = {"admin":"Request1106"}
+
 MIDDLEWARE = [
+    'basicauth.middleware.BasicAuthMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
