@@ -614,3 +614,268 @@ AttributeError: 'NoneType' object has no attribute 'name'
 [2021-04-18 11:25:50,625] [WARNING] => Not Found: /persons/person2
 [2021-04-18 11:40:33,550] [WARNING] => Not Found: /favicon.ico
 [2021-04-18 12:33:15,549] [WARNING] => Not Found: /favicon.ico
+[2021-04-18 20:38:31,414] [WARNING] => Unauthorized: /persons/
+[2021-04-18 20:38:41,518] [WARNING] => Unauthorized: /
+[2021-04-18 20:38:41,793] [WARNING] => Not Found: /favicon.ico
+[2021-04-18 20:48:22,681] [INFO] => По запросу <class 'str'> позиций не найдено
+[2021-04-18 20:48:22,729] [ERROR] => Internal Server Error: /list/
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py", line 72, in post
+    positions = positions.exclude(quantity=0).exclude(quantity=None)
+AttributeError: 'HttpResponse' object has no attribute 'exclude'
+[2021-04-18 20:48:35,481] [INFO] => Выбрано 2 позиций
+[2021-04-18 20:56:09,237] [INFO] => По запросу <class 'str'> позиций не найдено
+[2021-04-18 20:56:09,285] [ERROR] => Internal Server Error: /list/
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py", line 72, in post
+    positions = positions.exclude(quantity=0).exclude(quantity=None)
+AttributeError: 'HttpResponse' object has no attribute 'exclude'
+[2021-04-18 20:57:13,795] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
+[2021-04-18 20:57:18,684] [INFO] => По запросу <class 'str'> позиций не найдено
+[2021-04-18 20:57:18,740] [ERROR] => Internal Server Error: /list/
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py", line 73, in post
+    positions = positions.exclude(quantity=0).exclude(quantity=None)
+AttributeError: 'HttpResponse' object has no attribute 'exclude'
+[2021-04-18 20:57:43,812] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
+[2021-04-18 20:58:49,101] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
+[2021-04-18 21:00:57,272] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
+[2021-04-18 21:01:04,942] [INFO] => По запросу <class 'str'> позиций не найдено
+[2021-04-18 21:02:06,501] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
+[2021-04-18 21:02:16,399] [INFO] => По запросу <class 'str'> позиций не найдено
+[2021-04-18 21:02:24,740] [INFO] => Выбрано 14 позиций
+[2021-04-18 21:03:04,195] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
+[2021-04-18 21:07:46,300] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
+[2021-04-18 21:12:34,018] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
+[2021-04-18 21:14:21,637] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
+[2021-04-18 21:20:34,373] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
+[2021-04-18 21:20:41,256] [INFO] => Выбрано 14 позиций
+[2021-04-18 21:20:41,313] [ERROR] => Internal Server Error: /list/
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py", line 73, in post
+    context={"positions": positions, "check": check, "isNull": isNotNull})
+NameError: name 'isNotNull' is not defined
+[2021-04-18 21:20:58,547] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
+[2021-04-18 21:21:01,654] [INFO] => Выбрано 14 позиций
+[2021-04-18 21:21:01,719] [ERROR] => Internal Server Error: /list/
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py", line 73, in post
+    context={"positions": positions, "check": check, "isNotNull": isNotNull})
+NameError: name 'isNotNull' is not defined
+[2021-04-18 21:21:11,612] [INFO] => По запросу <class 'str'> позиций не найдено
+[2021-04-18 21:21:11,656] [ERROR] => Internal Server Error: /list/
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py", line 73, in post
+    context={"positions": positions, "check": check, "isNotNull": isNotNull})
+NameError: name 'isNotNull' is not defined
+[2021-04-18 21:21:46,550] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
+[2021-04-18 21:21:58,432] [INFO] => По запросу <class 'str'> позиций не найдено
+[2021-04-18 21:24:28,195] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
+[2021-04-18 21:24:50,666] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
+[2021-04-18 21:25:59,295] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
+[2021-04-18 21:26:09,754] [INFO] => По запросу <class 'str'> позиций не найдено
+[2021-04-18 21:26:35,485] [ERROR] => Internal Server Error: /list/
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py", line 69, in post
+    isNotNull = bool(len(positions))
+TypeError: object of type 'NoneType' has no len()
+[2021-04-18 21:27:19,000] [ERROR] => Internal Server Error: /list/
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py", line 69, in post
+    isNotNull = bool(len(positions))
+TypeError: object of type 'NoneType' has no len()
+[2021-04-18 21:27:27,829] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
+[2021-04-18 21:27:33,062] [ERROR] => Internal Server Error: /list/
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py", line 70, in post
+    print(isNotNull)
+NameError: name 'isNotNull' is not defined
+[2021-04-18 21:27:42,393] [ERROR] => Internal Server Error: /list/
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py", line 70, in post
+    print(isNotNull)
+NameError: name 'isNotNull' is not defined
+[2021-04-18 21:28:40,874] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
+[2021-04-18 21:28:45,428] [ERROR] => Internal Server Error: /list/
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py", line 65, in post
+    print(_dict["req_search"])
+KeyError: 'req_search'
+[2021-04-18 21:28:54,267] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
+[2021-04-18 21:28:57,397] [INFO] => Выбрано 229 позиций
+[2021-04-18 21:29:04,976] [ERROR] => Internal Server Error: /list/
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py", line 70, in post
+    isNotNull = bool(len(positions))
+TypeError: object of type 'NoneType' has no len()
+[2021-04-18 21:30:12,211] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
+[2021-04-18 21:30:19,480] [INFO] => Выбрано 229 позиций
+[2021-04-18 21:30:21,114] [ERROR] => Internal Server Error: /list/
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py", line 70, in post
+    isNotNull = bool(len(positions))
+TypeError: object of type 'NoneType' has no len()
+[2021-04-18 21:31:01,840] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
+[2021-04-18 21:31:04,647] [ERROR] => Internal Server Error: /list/
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py", line 70, in post
+    isNotNull = bool(len(positions))
+TypeError: object of type 'NoneType' has no len()
+[2021-04-18 21:31:08,902] [ERROR] => Internal Server Error: /list/
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py", line 70, in post
+    isNotNull = bool(len(positions))
+TypeError: object of type 'NoneType' has no len()
+[2021-04-18 21:31:52,796] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
+[2021-04-18 21:32:00,103] [ERROR] => Internal Server Error: /list/
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py", line 70, in post
+    isNotNull = bool(len(positions))
+TypeError: object of type 'NoneType' has no len()
+[2021-04-18 21:34:52,697] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
+[2021-04-18 21:35:00,300] [ERROR] => Internal Server Error: /list/
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\ProgramData\Anaconda3\envs\tuPiM\lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py", line 71, in post
+    positions = positions.exclude(quantity=0).exclude(quantity=None)
+AttributeError: 'NoneType' object has no attribute 'exclude'
+[2021-04-18 21:35:59,517] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
+[2021-04-18 21:36:47,626] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.
+[2021-04-18 21:37:02,681] [INFO] => По запросу <class 'str'> позиций не найдено
+[2021-04-18 21:37:10,851] [INFO] => Выбрано 14 позиций
+[2021-04-18 21:39:58,489] [INFO] => C:\Users\Win10_Game_OS\PycharmProjects\sklad_site\Positions\views.py changed, reloading.

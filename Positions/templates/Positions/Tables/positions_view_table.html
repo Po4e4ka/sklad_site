@@ -51,7 +51,11 @@
     <div style="clear: both;"></div>
       </form>
     <br>
+    {% if isNotNull %}
             <h1>Таблица наименований</h1><br>
+    {% else %}
+            <h1>Пустой запрос поиска</h1><br>
+    {% endif %}
 				<div class="table100">
 					<table class="table_sort">
 						<thead>

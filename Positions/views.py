@@ -57,21 +57,21 @@ class PositionLisView(View):
         else:
             positions = Positions.objects.exclude(quantity=0).exclude(quantity=None)
         return render(request, "Positions/Tables/positions_view_table.html",
-                      context={"positions": positions, "check": check})
+                      context={"positions": positions, "check": check, "isNotNull":True})
 
     def post(self, request):
-
         _dict = dict(request.POST.items())
-        print(_dict["reg_search"])
         if _dict["reg_search"] is not None:
             positions = find_pos(_dict["reg_search"])
         else:
             positions = Positions.objects.all()
         check = request.GET.get("null") == '1'
-        if not check:
+        isNotNull = bool(len(positions)) if positions is not None else False
+        if not check and isNotNull:
             positions = positions.exclude(quantity=0).exclude(quantity=None)
+        print(isNotNull)
         return render(request, "Positions/Tables/positions_view_table.html",
-                      context={"positions": positions, "check": check})
+                      context={"positions": positions, "check": check, "isNotNull": isNotNull})
 
 
 # Позиция

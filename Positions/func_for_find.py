@@ -17,7 +17,7 @@ def find_pos(data: str = False, code_pos: str = False):
                 return pos_find_name
             else:
                 logging.info("По запросу %s позиций не найдено", str)
-                return HttpResponse("Positions is absent")
+                return pos_find_name
         if code_pos:
             code_pos = int(code_pos)
         if not data and code_pos:
